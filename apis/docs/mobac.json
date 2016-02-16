@@ -1,0 +1,252 @@
+
+  Client Register POST: loc.api.bluenet.blueteam.in/client
+  
+    {
+      "root": 
+        {
+          "name": "Client_name",
+          "mobile": "9999999999",
+          "password": "111redhat",
+          "email": "Client@mail.com",
+          "location": "1111.221,5.1231"
+        }
+    }
+
+    Response: 
+
+    object(stdClass)#2 (1) {
+      ["root"]=>
+      object(stdClass)#3 (5) {
+        ["name"]=>
+        string(4) "John"
+        ["email"]=>
+        string(3) "Doe"
+        ["password"]=>
+        string(9) "redhat123"
+        ["mobile"]=>
+        string(11) "12312342132"
+        ["location"]=>
+        string(15) "2.23434,43.4343"
+      }
+    }
+  
+
+  Contacts POST: loc.api.bluenet.blueteam.in/mobac/contacts
+
+    {
+      "root":
+      	{ "contacts":
+         [ 
+            {
+            "client_id" : 1,
+            "name": "rajnsih",
+            "mobile": "8901414422",
+            "email": "rajnsih@blueteam.in",
+            "location": "12.1221,21.23"
+            },
+            {
+            "client_id" : 1,
+            "name": "rahul",
+            "mobile": "894422",
+            "email": "maiqed@asdf",
+            "location": "52.1221,21.23"
+            }
+      	 ]
+    	}
+    }
+
+    Response:
+      object(stdClass)#2 (1) {
+        ["root"]=>
+        object(stdClass)#3 (1) {
+          ["contacts"]=>
+          array(2) {
+            [0]=>
+            object(stdClass)#4 (5) {
+              ["client_id"]=>
+              int(1)
+              ["name"]=>
+              string(7) "rajnsih"
+              ["mobile"]=>
+              string(10) "8901414422"
+              ["email"]=>
+              string(19) "rajnsih@blueteam.in"
+              ["location"]=>
+              string(13) "12.1221,21.23"
+            }
+            [1]=>
+            object(stdClass)#5 (5) {
+              ["client_id"]=>
+              int(1)
+              ["name"]=>
+              string(5) "rahul"
+              ["mobile"]=>
+              string(6) "894422"
+              ["email"]=>
+              string(11) "maiqed@asdf"
+              ["location"]=>
+              string(13) "52.1221,21.23"
+            }
+          }
+        }
+      }
+
+
+  Messages POST: loc.api.bluenet.blueteam.in/mobac/messages
+
+  {
+    "root":
+      { "messages":
+        [ 
+          {
+          "client_id" : 1,
+          "from_to": "8901414422",
+          "message_text": "hi, message API",
+           "creation":"",  
+           "type": "Inbox",
+          "location": "12.1221,21.23"
+          },
+          {
+          "client_id" : 1,
+          "from_to": "8901414422",
+          "message_text": "hi, message API",
+           "creation":"",  
+           "type": "Inbox",
+          "location": "12.1221,21.23"
+          }
+        ]
+      }
+  }
+
+
+  Response:
+
+    object(stdClass)#2 (1) {
+      ["root"]=>
+      object(stdClass)#3 (1) {
+        ["messages"]=>
+        array(2) {
+          [0]=>
+          object(stdClass)#4 (6) {
+            ["client_id"]=>
+            int(1)
+            ["from_to"]=>
+            string(10) "8901414422"
+            ["message_text"]=>
+            string(15) "hi, message API"
+            ["creation"]=>
+            string(0) ""
+            ["type"]=>
+            string(5) "Inbox"
+            ["location"]=>
+            string(13) "12.1221,21.23"
+          }
+          [1]=>
+          object(stdClass)#5 (6) {
+            ["client_id"]=>
+            int(1)
+            ["from_to"]=>
+            string(10) "8901414422"
+            ["message_text"]=>
+            string(15) "hi, message API"
+            ["creation"]=>
+            string(0) ""
+            ["type"]=>
+            string(5) "Inbox"
+            ["location"]=>
+            string(13) "12.1221,21.23"
+          }
+        }
+      }
+    }
+
+    CallDetails: POST loc.api.bluenet.blueteam.in/mobac/callDetails
+
+
+    {
+      "root":
+        { "callDetails":
+         [ 
+            {
+            "client_id" : 1,
+            "second_party": "8901414422",
+              "call_duration": "01:12:02",
+            "creation":"",
+            "type": "Outgoing",
+            "location": "12.1221,21.23"
+            },
+            {
+            "client_id" : 1,
+            "second_party": "8021212121",
+              "call_duration": "00:14:00",
+             "creation":"",  
+             "type": "Incoming",
+            "location": "12.1221,21.23"
+            },
+           {
+            "client_id" : 1,
+            "second_party": "8901414422",
+           "call_duration": "00:00:00",
+             "creation":"",
+             "type": "Missed",
+            "location": "12.1221,21.23"
+            }
+         ]
+      }
+    }
+
+    Response:
+
+    object(stdClass)#2 (1) {
+      ["root"]=>
+      object(stdClass)#3 (1) {
+        ["callDetails"]=>
+        array(3) {
+          [0]=>
+          object(stdClass)#4 (6) {
+            ["client_id"]=>
+            int(1)
+            ["second_party"]=>
+            string(10) "8901414422"
+            ["call_duration"]=>
+            string(8) "01:12:02"
+            ["creation"]=>
+            string(0) ""
+            ["type"]=>
+            string(8) "Outgoing"
+            ["location"]=>
+            string(13) "12.1221,21.23"
+          }
+          [1]=>
+          object(stdClass)#5 (6) {
+            ["client_id"]=>
+            int(1)
+            ["second_party"]=>
+            string(10) "8021212121"
+            ["call_duration"]=>
+            string(8) "00:14:00"
+            ["creation"]=>
+            string(0) ""
+            ["type"]=>
+            string(8) "Incoming"
+            ["location"]=>
+            string(13) "12.1221,21.23"
+          }
+          [2]=>
+          object(stdClass)#6 (6) {
+            ["client_id"]=>
+            int(1)
+            ["second_party"]=>
+            string(10) "8901414422"
+            ["call_duration"]=>
+            string(8) "00:00:00"
+            ["creation"]=>
+            string(0) ""
+            ["type"]=>
+            string(6) "Missed"
+            ["location"]=>
+            string(13) "12.1221,21.23"
+          }
+        }
+      }
+    }

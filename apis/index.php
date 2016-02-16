@@ -51,8 +51,17 @@
 
 		case "mobac":
 			switch ($route[2]) {
+
 				case 'contacts':
 					require_once "inc_mobac/contacts.php";
+					break;
+
+				case 'messages':
+					require_once "inc_mobac/messages.php";
+					break;
+
+				case 'callDetails':
+					require_once "inc_mobac/callDetails.php";
 					break;
 				
 				default:
@@ -81,6 +90,6 @@
 	}
 
 
-	mysqli_connect($db_handle);
+	mysqli_close($db_handle);
 
 ?>
