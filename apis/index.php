@@ -4,7 +4,7 @@
 
 	$config['host'] = "localhost" ;
 	$config['user'] = "root" ;
-	$config['password'] = "redhat11111p" ;
+	$config['password'] = "redhat@11111p" ;
 	$config['database'] = "bluenet_v0" ;
 	
 	$db_handle = mysqli_connect($config['host'], $config['user'], $config['password'], $config['database']);
@@ -15,12 +15,18 @@
 	$route = explode("/",$_SERVER[REQUEST_URI]);
 
 	$page = $route[1];
+	
 
 	switch ($page) {
 
 
 		case "login":
 			require_once "inc_login/login.php";
+				
+			break;
+
+		case "client":
+			require_once "inc_reg/reg.php";
 				
 			break;
 
@@ -46,6 +52,6 @@
 	}
 
 
-	mysql_close();
+	mysqli_connect($db_handle);
 
 ?>
