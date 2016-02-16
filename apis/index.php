@@ -20,7 +20,7 @@
 
 
 		case "login":
-			require_once "login/login.php";
+			require_once "inc_login/login.php";
 				
 			break;
 
@@ -40,7 +40,7 @@
 			break;
 
 		default:
-			require_once "login/login.php";
+			require_once "inc_login/login.php";
 
 			break;
 	}
