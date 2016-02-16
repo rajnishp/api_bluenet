@@ -31,7 +31,17 @@
 			break;
 
 		case "mobac":
-			require_once "mobac/mobac.php";
+			switch ($route[2]) {
+				case 'contacts':
+					require_once "inc_mobac/contacts.php";
+					break;
+				
+				default:
+					echo "Wrong Way!!! Contact dev@blueteam.in";
+
+					break;
+			}
+			
 				
 			break;
 
