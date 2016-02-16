@@ -23,7 +23,7 @@
 
 	$config['host'] = "localhost" ;
 	$config['user'] = "root" ;
-	$config['password'] = "redhat@11111p" ;
+	$config['password'] = "redhat11111p" ;
 	$config['database'] = "bluenet_v0" ;
 	
 	$db_handle = mysqli_connect($config['host'], $config['user'], $config['password'], $config['database']);
@@ -76,6 +76,10 @@
 		case "cem":
 			require_once "cem/cem.php";
 				
+			break;
+
+		case "service_request":
+			require_once "inc_service_request/service_request.php";
 			break;
 
 		case "me":

@@ -1,6 +1,7 @@
+/client
 
-  Client Register POST: loc.api.bluenet.blueteam.in/client
-  
+   POST: "loc.api.bluenet.blueteam.in/client"
+   POST Data:
     {
       "root": 
         {
@@ -30,8 +31,9 @@
       }
     }
   
+/contacts
 
-  Contacts POST: loc.api.bluenet.blueteam.in/mobac/contacts
+  Contacts POST: "loc.api.bluenet.blueteam.in/mobac/contacts"
 
     {
       "root":
@@ -91,8 +93,9 @@
         }
       }
 
+/messages
 
-  Messages POST: loc.api.bluenet.blueteam.in/mobac/messages
+  Messages POST: "loc.api.bluenet.blueteam.in/mobac/messages"
 
   {
     "root":

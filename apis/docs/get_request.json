@@ -1,0 +1,120 @@
+        GET "loc.api.bluenet.blueteam.in/service_request/demo"
+
+        Respose:
+        {"root":
+            [
+                {
+                    "id": "369",
+                    "name": "Parikshit Roy",
+                    "mobile": "9810057671",
+                    "requirements": "maid",
+                    "gender": "female",
+                    "timings": "07:30 am-7:30 pm",
+                    "min_salary": "10",
+                    "max_salary": "10",
+                    "address": "DLF Phase 5, Gurgaon",
+                    "area": "DLF Phase 5",
+                    "remarks": "Maid and Breakfast, Messaged on Demand form, called by Rajnish on 27 Jan, Call by 30 Jan, @ 11:00 am",
+                    "worker_area": "horizon colony , sarswati kunj, wazirabad, cakkarpur",
+                    "work_time": "12",
+                    "created_time": "2016-01-26",
+                    "date": "2016-01-30 11:33:36",
+                    "me_id": "8",
+                    "cem_id": "6",
+                    "status": "demo",
+                    "match_id": "63",
+                    "match2_id": "0",
+                    "last_updated": "2016-02-15 20:10:07",
+                    "done_worker_id": "63",
+                    "fixed_salary": "",
+                    "user_id": "6",
+                    "priority": "10",
+                    "notes": [
+                        {
+                            "id": "95",
+                            "sr_id": "369",
+                            "note": "They will call us after 2 Days (1 Feb), Need domestic Helper. called on 30 Jan ",
+                            "date": "2016-01-30 16:58:53",
+                            "cem_id": "6",
+                            "about": "client_request"
+                        },
+                        {
+                            "id": "128",
+                            "sr_id": "369",
+                            "note": "Pre-Meeting is done by Rajnish, Sanjini Roy wife of Parikshit Roy",
+                            "date": "2016-02-07 16:59:02",
+                            "cem_id": "6",
+                            "about": "worker"
+                        },
+                        {
+                            "id": "149",
+                            "sr_id": "369",
+                            "note": "Please add worker Detail : Lashimi Horizon Colony, worker by Vikas Nagar,\r\nIn-Demo period from 10th Feb",
+                            "date": "2016-02-11 10:07:11",
+                            "cem_id": "6",
+                            "about": "worker"
+                        },
+                        {
+                            "id": "150",
+                            "sr_id": "369",
+                            "note": "Demo Done, 20 % collection done by Rajnish on 13/02/2016,\r\nRemaining 80 % will be done on 17/02/2016",
+                            "date": "2016-02-15 20:00:13",
+                            "cem_id": "6",
+                            "about": "worker"
+                        }
+                    ],
+                    "picked_by_me": {
+                        "id": "8",
+                        "first_name": "vikas",
+                        "last_name": "nagar",
+                        "email": "vikas@blueteam.in",
+                        "phone": "9560625626",
+                        "password": "bebe68374a49cb41b7c9219e97250044",
+                        "reg_date": "2016-01-14 13:01:01",
+                        "employee_type": "me"
+                    },
+                    "picked_by_cem": {
+                        "id": "6",
+                        "first_name": "Rajnish",
+                        "last_name": "Kumar",
+                        "email": "rajnish@blueteam.in",
+                        "phone": "8901414422",
+                        "password": "e2798af12a7a0f4f70b4d69efbc25f4d",
+                        "reg_date": "2016-01-13 16:07:38",
+                        "employee_type": "cem"
+                    },
+                    "match1": {
+                        "id": "63",
+                        "first_name": "Laxmi",
+                        "last_name": "kumari",
+                        "phone": "7210022734",
+                        "gender": "female",
+                        "area": "horizon colony,",
+                        "birth_date": "1995-05-02",
+                        "age": "21",
+                        "education": "10",
+                        "languages": "Hindi",
+                        "min_salary": "10000",
+                        "max_salary": "10000",
+                        "current_address": "Harizon colony",
+                        "permanent_address": "harizon colony",
+                        "timings": "07:30 am-7:30 pm",
+                        "work_time": "12",
+                        "varification_status": "yes",
+                        "emergency_phone": "7210022734",
+                        "address_proof_name": "",
+                        "address_proof_id": "",
+                        "id_proof_name": "",
+                        "id_proof_id": "",
+                        "experience": "2",
+                        "remarks": "NA",
+                        "creation_date": "2016-02-15 22:20:55",
+                        "service": "Maid",
+                        "status": "available",
+                        "me_id": "8",
+                        "last_updated": null
+                    },
+                    "match2": ""
+                }
+            ]
+        }   
