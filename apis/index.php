@@ -92,6 +92,10 @@
 			require_once "inc_service_request/services.php";
 			break;
 
+		case "workers":
+			require_once "inc_workers/worker.php";
+			break;
+
 		case "me":
 			require_once "me/me.php";
 				
