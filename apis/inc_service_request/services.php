@@ -4,18 +4,16 @@
 	//var_dump($input);
 
 	//$user_id = $_SESSION['user_id'];
-	$user_id = 6;
-	$route = explode("/",$_SERVER[REQUEST_URI]);
-	$status = $route['2'];
 	
-	$service_requests = mysqli_query($db_handle, "SELECT sr.* FROM service_request as sr WHERE ".$condition." ; ") ;
+	$services = mysqli_query($db_handle, "SELECT * FROM `bluenet_v0`.`services` WHERE 1; ") ;
 
-	$rows = array();
+	for($servicesArr = array(); $service = mysqli_fetch_assoc($services); $servicesArr[] = $service);
 
- 	
+	for ($i=0; $i < count($servicesArr) ; $i++) 
+		$servicesArr[$i]["plans"] = json_decode($servicesArr[$i]["plans"]);
+
 	echo "{\"root\":";
-	print json_encode($rows);
+	print (json_encode($servicesArr));
 	echo "}";
-
 
 ?>

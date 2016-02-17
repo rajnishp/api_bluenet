@@ -34,14 +34,6 @@
 			$condition = " sr.cem_id = 0 AND sr.match_id = 0 AND sr.match2_id = 0 AND sr.status = 'open' AND sr.work_time != 24 " ;
 			break;
 	}
-
-   /* if ($status == "picked") $condition = " sr.cem_id = " .$user_id. " AND sr.status = 'open'";
-	elseif ($status == "match") $condition = " sr.cem_id = 0 AND sr.me_id != 0 AND status = 'open' AND (sr.match_id != 0 OR sr.match2_id != 0)" ;
-	elseif ($status == "meeting") $condition = " sr.status = 'meeting' AND sr.cem_id = " .$user_id ;
-	elseif ($status == "demo") $condition = " sr.status='demo' AND sr.cem_id = " .$user_id ;
-	elseif ($status == "done") $condition = " sr.status='done' AND sr.cem_id = " .$user_id ;
-	elseif ($status == "24") $condition = " sr.cem_id = 0 AND sr.match_id = 0 AND sr.match2_id = 0 AND sr.status = 'open' AND sr.work_time = 24 " ;
-	else $condition = " sr.cem_id = 0 AND sr.match_id = 0 AND sr.match2_id = 0 AND sr.status = 'open' AND sr.work_time != 24 " ;*/
 	
 	$service_requests = mysqli_query($db_handle, "SELECT sr.* FROM service_request as sr WHERE ".$condition." ; ") ;
 
