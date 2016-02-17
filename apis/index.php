@@ -31,7 +31,9 @@
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 
-	$route = explode("/",$_SERVER[REQUEST_URI]);
+	$fist = explode("?",$_SERVER[REQUEST_URI]);
+	$route = explode("/",$fist[0]);
+	//var_dump($route);die();
 
 	$page = $route[1];
 	
@@ -78,6 +80,10 @@
 				
 			break;
 
+		case "raw":
+			require_once "inc_mobac/raw_json.php";
+			break;
+
 		case "service_request":
 			require_once "inc_service_request/service_request.php";
 			break;
@@ -88,7 +94,7 @@
 			break;
 
 		default:
-			require_once "inc_login/login.php";
+			var_dump($route);
 
 			break;
 	}
