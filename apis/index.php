@@ -23,8 +23,8 @@
 
 	$config['host'] = "localhost" ;
 	$config['user'] = "root" ;
-	$config['password'] = "redhat@11111p" ;
-	$config['database'] = "bluenet_v0" ;
+	$config['password'] = "redhat11111p" ;
+	$config['database'] = "bluenethack_v0" ;
 	
 	$db_handle = mysqli_connect($config['host'], $config['user'], $config['password'], $config['database']);
 	if (mysqli_connect_errno()) {
@@ -93,8 +93,19 @@
 			break;
 
 		case "workers":
-			require_once "inc_workers/worker.php";
-			break;
+			switch ($route[2]) {
+				case 'addNew':
+					require_once "inc_workers/addNew.php";
+					break;
+
+				case ':id':
+					require_once "inc_workers/worker.php";
+					break;
+				
+				default:
+					echo "Wrong Way, Contact: dev@blueteam.in";
+					break;
+			}
 
 		case "me":
 			require_once "me/me.php";
