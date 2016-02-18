@@ -1,8 +1,10 @@
 <?php
 
 	$input = json_decode(file_get_contents ("php://input"));
-	
+
 	//$user_id = $_SESSION['user_id'];
+	//$employeeType = $_SESSION['employee_type'];
+	$employeeType = 'cem';
 	$user_id = 6;
 	$route = explode("/",$_SERVER[REQUEST_URI]);
 	
@@ -19,11 +21,34 @@
 		if ($route['3'] == 'pick') {
 			pickServiceRequest($SR_id, $user_id, $db_handle);
 		}
+		elseif ($route['3'] == 'add_note') {
+			addNote($input, $SR_id, $user_id, $db_handle, $employeeType);
+		}
 	}
 	else {
 
 	}
 
+	function addNote ($input, $SR_id, $user_id, $db_handle, $employeeType) {
+
+		if ($employeeType == 'cem') {
+			echo "inside if";
+			$about  = "client_request";
+		}
+		else {
+			echo "inside else";
+			$about  = "worker";
+		}
+
+		$sql = "INSERT INTO bluenethack_v0.notes (`id`, `sr_id`, `note`, `cem_id`, `about`) VALUES 
+					(NULL, '$SR_id', '".$input->root->note."', '$user_id', '$about');";
+		
+		$updateRequest = mysqli_query ($db_handle, $sql);
+
+		if(mysqli_connect_errno()){
+			// send 500 html header
+		}
+	}
 
 	function pickServiceRequest ($SR_id, $user_id, $db_handle) {
 		
