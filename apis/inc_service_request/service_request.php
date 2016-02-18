@@ -37,6 +37,9 @@
 
 	function addMeeting($input, $SR_id, $user_id, $db_handle) {
 
+		$sql = "UPDATE bluenethack_v0.service_request SET status = 'meeting', last_updated = CURRENT_TIMESTAMP WHERE id='$SR_id';";
+		
+		$updateRequest = mysqli_query ($db_handle, $sql);
 		/*$sql = "SELECT status, match_id, match2_id FROM bluenethack_v0.service_request WHERE id='$SR_id';";
 
 		$matchIDsSql = mysqli_query ($db_handle, $sql);
