@@ -1,7 +1,7 @@
 <?php
 
 	$input = json_decode(file_get_contents ("php://input"));
-
+	var_dump($input);
 	//$user_id = $_SESSION['user_id'];
 	//$employeeType = $_SESSION['employee_type'];
 	$employeeType = 'cem';
@@ -24,8 +24,69 @@
 		elseif ($route['3'] == 'add_note') {
 			addNote($input, $SR_id, $user_id, $db_handle, $employeeType);
 		}
+		elseif ($route['3'] == 'change_status') {
+			changeStatus($input, $SR_id, $user_id, $db_handle);
+		}
+		elseif ($route['3'] == 'add_meeting') {
+			addMeeting($input, $SR_id, $user_id, $db_handle);
+		}
 	}
 	else {
+
+	}
+
+	function addMeeting($input, $SR_id, $user_id, $db_handle) {
+
+		/*$sql = "SELECT status, match_id, match2_id FROM bluenethack_v0.service_request WHERE id='$SR_id';";
+
+		$matchIDsSql = mysqli_query ($db_handle, $sql);
+		$matchIDsSqlRow = mysqli_fetch_array($matchIDsSql);
+		$match1 = $matchIDsSqlRow['match_id'];
+		$match2 = $matchIDsSqlRow['match2_id'];
+		
+		$oldStatus = $matchIDsSqlRow['status'];
+
+		if ($input->root->worker_id == $match1)
+			$workerId = $match1;
+		elseif ($input->root->worker_id == $match2)
+			$workerId = $match2;
+		else
+			$workerId = 0;*/
+
+		$sql = "INSERT INTO bluenethack_v0.meetings (`id`, `match_id`, `meeting_time`, `remarks`, `cem_id`, `worker_id`) VALUES 
+													(NULL, '$SR_id',
+													'".$input->root->meeting_date." ".$input->root->meeting_time."',
+													'".$input->root->remarks."',
+													'$user_id', '".$input->root->worker_id."');";
+		
+		$updateRequest = mysqli_query ($db_handle, $sql);
+	
+		$sql ="INSERT INTO bluenethack_v0.updates (`id`, `user_id`, `update_time`, `request_id`, `old_status`, `new_status`) 
+													VALUES (NULL, $user_id, CURRENT_TIMESTAMP, $SR_id, 'open', 'meeting');";
+		$updates = mysqli_query ($db_handle, $sql);
+		if(mysqli_connect_errno()){
+			// send 500 html header
+		}
+	}
+
+	function changeStatus($input, $SR_id, $user_id, $db_handle) {
+
+		/*$sql = "SELECT status FROM bluenethack_v0.service_request WHERE id='$SR_id';";
+
+		$oldStatusSql = mysqli_query ($db_handle, $sql);
+		$oldStatusRow = mysqli_fetch_array($oldStatusSql);
+		$oldStatus = $oldStatusRow['status'];*/
+
+		$sql = "UPDATE bluenethack_v0.service_request SET status = '".$input->root->new_status."', last_updated = CURRENT_TIMESTAMP WHERE id='$SR_id';";
+		
+		$updateRequest = mysqli_query ($db_handle, $sql);
+	
+		$sql ="INSERT INTO bluenethack_v0.updates (`id`, `user_id`, `update_time`, `request_id`, `old_status`, `new_status`) 
+													VALUES (NULL, $user_id, CURRENT_TIMESTAMP, $SR_id, '".$input->root->old_status."', '".$input->root->new_status."');";
+		$updates = mysqli_query ($db_handle, $sql);
+		if(mysqli_connect_errno()){
+			// send 500 html header
+		}
 
 	}
 
