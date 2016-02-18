@@ -1,7 +1,7 @@
 <?php
 
 	$input = json_decode(file_get_contents ("php://input"));
-	var_dump($input);
+	//var_dump($input);
 	//$user_id = $_SESSION['user_id'];
 	//$employeeType = $_SESSION['employee_type'];
 	$employeeType = 'cem';
@@ -9,7 +9,6 @@
 	$route = explode("/",$_SERVER[REQUEST_URI]);
 	
 	$SR_id = intval($route['2']);
-	
 	
 	if ($route[2] == 'picked' || $route[2] == 'match' || $route[2] == 'meeting' || $route[2] == 'demo' || $route[2] == 'done'|| $route[2] == 'open' || $route[2] == '24hours') {
 		
@@ -29,6 +28,50 @@
 		}
 		elseif ($route['3'] == 'add_meeting') {
 			addMeeting($input, $SR_id, $user_id, $db_handle);
+		}
+		elseif ($route['3'] == 'add_worker') {
+
+			$workerFName = $input->root->first_name;
+			$workerAge = $input->root->age;
+			$workerPhone = $input->root->phone;
+
+			$sql = "SELECT id, first_name, last_name, phone FROM bluenethack_v0.workers WHERE age='$workerAge' AND phone = '$workerPhone' AND first_name = '$workerFName' ;";
+		
+			$worker = mysqli_query ($db_handle, $sql);
+			$workerRow = mysqli_fetch_array($worker);
+
+
+			if (mysqli_num_rows($workerRow) == 0) {
+			
+				//echo getcwd(); die();
+				include_once "/var/www/html/api_bluenet/apis/inc_workers/add_worker_function.php";
+				$new_worker_id = addNewWorker($input, $user_id, $db_handle);
+
+				if ($route['4'] == '1'){
+					
+					$sql = "UPDATE bluenethack_v0.service_request SET match_id = '$new_worker_id', last_updated = CURRENT_TIMESTAMP WHERE id='$SR_id';";
+					$updateRequest = mysqli_query ($db_handle, $sql);
+				}
+				elseif($route['4'] == '2') {
+					$sql = "UPDATE bluenethack_v0.service_request SET match2_id = '$new_worker_id', last_updated = CURRENT_TIMESTAMP WHERE id='$SR_id';";
+					$updateRequest = mysqli_query ($db_handle, $sql);
+				}
+			
+			}
+
+			else {
+
+				$worker_id = $workerRow['id'];
+				if ($route['4'] == '1'){
+					
+					$sql = "UPDATE bluenethack_v0.service_request SET match_id = '$worker_id', last_updated = CURRENT_TIMESTAMP WHERE id='$SR_id';";
+					$updateRequest = mysqli_query ($db_handle, $sql);
+				}
+				elseif($route['4'] == '2') {
+					$sql = "UPDATE bluenethack_v0.service_request SET match2_id = '$worker_id', last_updated = CURRENT_TIMESTAMP WHERE id='$SR_id';";
+					$updateRequest = mysqli_query ($db_handle, $sql);
+				}
+			}
 		}
 	}
 	else {
@@ -96,7 +139,6 @@
 	function addNote ($input, $SR_id, $user_id, $db_handle, $employeeType) {
 
 		if ($employeeType == 'cem') {
-			echo "inside if";
 			$about  = "client_request";
 		}
 		else {
