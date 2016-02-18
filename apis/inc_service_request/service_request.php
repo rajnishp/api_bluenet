@@ -11,7 +11,7 @@
 	$SR_id = intval($route['2']);
 	
 	
-	if ($route[2] == 'picked' || $route[2] == 'match' || $route[2] == 'meeting' || $route[2] == 'demo' || $route[2] == 'done' || $route[2] == '24hours') {
+	if ($route[2] == 'picked' || $route[2] == 'match' || $route[2] == 'meeting' || $route[2] == 'demo' || $route[2] == 'done'|| $route[2] == 'open' || $route[2] == '24hours') {
 		
 		$status = $route['2'];
 		serviceRequestView($status, $user_id, $db_handle);
@@ -67,7 +67,6 @@
 
 	function serviceRequestView ($status, $user_id, $db_handle) {
 
-
 		$condition = "";
 
 		switch ($status) {
@@ -89,7 +88,9 @@
 			case '24hours':
 				 $condition = " sr.cem_id = 0 AND sr.match_id = 0 AND sr.match2_id = 0 AND sr.status = 'open' AND sr.work_time = 24 " ;
 				break;
-			
+			case 'open':
+				$condition = " sr.cem_id = 0 AND sr.match_id = 0 AND sr.match2_id = 0 AND sr.status = 'open' " ;
+				break;
 			default:
 				$condition = " sr.cem_id = 0 AND sr.match_id = 0 AND sr.match2_id = 0 AND sr.status = 'open' AND sr.work_time != 24 " ;
 				break;
