@@ -8,7 +8,7 @@
 	
 	foreach ($input->root->raw as $key => $rawJson) {
 		
-		$sql = "INSERT INTO `mobac`.`raw_json` (`id`, `client_id`, `raw`, `type`, `location`)
+		$sql = "INSERT INTO `mobac`.`raw_json` (`id`, `device_id`, `raw`, `type`, `location`)
 					VALUES (NULL, 
 						'".	$input->root->device_id."',
 						'".	json_encode($rawJson)."',
