@@ -110,7 +110,10 @@ function addMeeting($input, $SR_id, $user_id, $db_handle) {
 													VALUES (NULL, $user_id, CURRENT_TIMESTAMP, $SR_id, 'open', 'meeting');";
 	$updates = mysqli_query ($db_handle, $sql);
 	if(mysqli_connect_errno()){
-		// send 500 html header
+		/* send 500 html header*/
+		internalServerError("Error description: " . mysqli_error($db_handle));
+		echo("Error description: " . mysqli_error($db_handle));
+		die();
 	}
 }
 
@@ -130,7 +133,10 @@ function changeStatus($input, $SR_id, $user_id, $db_handle) {
 													VALUES (NULL, $user_id, CURRENT_TIMESTAMP, $SR_id, '".$input->root->old_status."', '".$input->root->new_status."');";
 	$updates = mysqli_query ($db_handle, $sql);
 	if(mysqli_connect_errno()){
-		// send 500 html header
+		/* send 500 html header*/
+		internalServerError("Error description: " . mysqli_error($db_handle));
+		echo("Error description: " . mysqli_error($db_handle));
+		die();
 	}
 
 }
@@ -151,7 +157,10 @@ function addNote ($input, $SR_id, $user_id, $db_handle, $employeeType) {
 	$updateRequest = mysqli_query ($db_handle, $sql);
 
 	if(mysqli_connect_errno()){
-		// send 500 html header
+		/* send 500 html header*/
+		internalServerError("Error description: " . mysqli_error($db_handle));
+		echo("Error description: " . mysqli_error($db_handle));
+		die();
 	}
 }
 
@@ -165,7 +174,10 @@ function pickServiceRequest ($SR_id, $user_id, $db_handle) {
 													VALUES (NULL, $user_id, CURRENT_TIMESTAMP, $SR_id, 'open', 'picked');";
 	$updates = mysqli_query ($db_handle, $sql);
 	if(mysqli_connect_errno()){
-		// send 500 html header
+		/* send 500 html header*/
+		internalServerError("Error description: " . mysqli_error($db_handle));
+		echo("Error description: " . mysqli_error($db_handle));
+		die();
 	}
 
 }

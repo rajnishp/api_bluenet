@@ -1,9 +1,9 @@
 <?php
 
-	$input = json_decode(file_get_contents ("php://input"));
-	var_dump($input);
+$input = json_decode(file_get_contents("php://input"));
+var_dump($input);
 
-	$sql = "INSERT INTO service_request (`id`, `name`, `mobile`, `requirements`, `gender`, `timings`,
+$sql = "INSERT INTO service_request (`id`, `name`, `mobile`, `requirements`, `gender`, `timings`,
 													`min_salary`, `max_salary`, `address`, `area`, `remarks`, `worker_area`, 
 													`work_time`, `created_time`, `date`, `user_id`, `priority`)
 				VALUES (NULL,
@@ -29,17 +29,22 @@
 
 					'". $input->root->user_id."',
 					'". $input->root->priority."');";
-	echo "query: " . $sql . "\n";
-	$service_request = mysqli_query ($db_handle, $sql);
-	if(mysqli_connect_errno()){
-		// send 500 html header
-		internalServerError();
-		echo("Error description: " . mysqli_error($con));
-		die();
-	}
-	$new_sr_id = mysql_insert_id($db_handle);
-echo "ID: " . $new_sr_id . "\n";
-/*	$sql = "SELECT * FROM `area`;";
+echo "query: " . $sql . "\n";
+$service_request = mysqli_query($db_handle, $sql);
+if (mysqli_connect_errno()) {
+	/* send 500 html header*/
+	internalServerError("Error description: " . mysqli_error($db_handle));
+	echo("Error description: " . mysqli_error($db_handle));
+	die();
+
+}
+
+$emailIds = array("rahul@blueteam.in", "rajnish@blueteam.in", "vikas@blueteam.in", "anil@blueteam.in");
+foreach ($emailIds as $to)
+	sendMail($to, "mobile app service requiest", jon_encode($input));
+
+/*
+	$sql = "SELECT * FROM `area`;";
 	$area_array = mysqli_query ($db_handle, $sql);
 	
 	
@@ -55,7 +60,7 @@ echo "ID: " . $new_sr_id . "\n";
 
 				$sr_area = mysqli_query ($db_handle, $sql);
 				if(mysqli_connect_errno()){
-					// send 500 html header
+					// send 500 html header internalServerError("Error description: " . mysqli_error($db_handle)); echo("Error description: " . mysqli_error($db_handle));die();
 				}
 			}
 		}
@@ -66,7 +71,7 @@ echo "ID: " . $new_sr_id . "\n";
 
 			$area = mysqli_query ($db_handle, $sql);
 			if(mysqli_connect_errno()){
-				// send 500 html header
+				// send 500 html header internalServerError("Error description: " . mysqli_error($db_handle)); echo("Error description: " . mysqli_error($db_handle));die();
 			}
 
 
@@ -78,7 +83,7 @@ echo "ID: " . $new_sr_id . "\n";
 
 			$sr_area = mysqli_query ($db_handle, $sql);
 			if(mysqli_connect_errno()){
-				// send 500 html header
+				// send 500 html header internalServerError("Error description: " . mysqli_error($db_handle)); echo("Error description: " . mysqli_error($db_handle));die();
 			}
 		}
 	
@@ -95,7 +100,7 @@ echo "ID: " . $new_sr_id . "\n";
 
 	$skill_name = mysqli_query ($db_handle, $sql);
 	if(mysqli_connect_errno()){
-		// send 500 html header
+		/// send 500 html header internalServerError("Error description: " . mysqli_error($db_handle)); echo("Error description: " . mysqli_error($db_handle));die();
 	}
 
 
@@ -112,7 +117,7 @@ echo "ID: " . $new_sr_id . "\n";
 
 	$skills = mysqli_query ($db_handle, $sql);
 	if(mysqli_connect_errno()){
-		// send 500 html header
+		// send 500 html header internalServerError("Error description: " . mysqli_error($db_handle)); echo("Error description: " . mysqli_error($db_handle));die();
 	}*/
 
 

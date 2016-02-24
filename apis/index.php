@@ -33,8 +33,26 @@
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 
-    function internalServerError(){
+function internalServerError($error)
+{
         header('HTTP/1.1 500 Internal Server Error');
+	$emailIds = array("rahul@blueteam.in", "rajnish@blueteam.in", "vikas@blueteam.in", "anil@blueteam.in");
+	foreach ($emailIds as $to)
+		sendMail($to, "Alert! error occurred in apis", $error);
+}
+
+function sendMail($to, $subject, $message)
+{
+
+	// Always set content-type when sending HTML email
+	$headers = "MIME-Version: 1.0" . "\r\n";
+	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+	// More headers
+	$headers .= 'From: <blueteam.requests@blueteam.in>' . "\r\n";
+	//$headers .= 'Cc: myboss@example.com' . "\r\n";
+
+	mail($to, $subject, $message, $headers);
     }
 	$fist = explode("?",$_SERVER[REQUEST_URI]);
 	$route = explode("/",$fist[0]);
