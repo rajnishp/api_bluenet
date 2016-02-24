@@ -28,14 +28,14 @@
 
 					'". $input->root->user_id."',
 					'". $input->root->priority."');";
-
+	echo "query: " . $sql . "\n";
 	$service_request = mysqli_query ($db_handle, $sql);
 	if(mysqli_connect_errno()){
 		// send 500 html header
 	}
 	$new_sr_id = mysql_insert_id($db_handle);
-
-	$sql = "SELECT * FROM `area`;";
+echo "ID: " . $new_sr_id . "\n";
+/*	$sql = "SELECT * FROM `area`;";
 	$area_array = mysqli_query ($db_handle, $sql);
 	
 	
@@ -109,7 +109,7 @@
 	$skills = mysqli_query ($db_handle, $sql);
 	if(mysqli_connect_errno()){
 		// send 500 html header
-	}
+	}*/
 
 
 ?>
