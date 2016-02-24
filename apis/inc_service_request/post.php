@@ -27,7 +27,7 @@
 
 
 					'". $input->root->user_id."',
-					'". $input->root->priority"');";
+					'". $input->root->priority."');";
 
 	$service_request = mysqli_query ($db_handle, $sql);
 	if(mysqli_connect_errno()){
@@ -45,7 +45,7 @@
 				$area_id = $area -> id;
 				$sql = "INSERT INTO bluenet_v0.sr_area (`id`, `sr_id`)
 					VALUES ('".$area_id."',
-						'". $new_sr_id"');";
+						'". $new_sr_id."');";
 
 				//id: area_id, sr_id: service_request_id
 
@@ -58,7 +58,7 @@
 		else {
 			$sql = "INSERT INTO bluenet_v0.area (`id`, `name`)
 			VALUES (NULL, 
-				'". $input->root->area"');";
+				'". $input->root->area."');";
 
 			$area = mysqli_query ($db_handle, $sql);
 			if(mysqli_connect_errno()){
@@ -68,7 +68,7 @@
 
 			$sql = "INSERT INTO bluenet_v0.sr_area (`id`, `sr_id`)
 				VALUES (NULL, 
-					'". $new_sr_id"');";
+					'". $new_sr_id."');";
 
 			//id: area_id, sr_id: service_request_id
 
@@ -85,7 +85,7 @@
 
 	$sql = "INSERT INTO bluenet_v0.skill_name (`id`, `name`)
 				VALUES (NULL, 
-					'". $input->root->name"');";
+					'". $input->root->name."');";
 
 	//id: skill_id, name: skill_name
 
@@ -102,7 +102,7 @@
 					'". $input->root->created_date."', 
 					'". $input->root->status."', 
 					'". $input->root->type."', 
-					'". $input->root->employee_id"');";
+					'". $input->root->employee_id."');";
 
 	//
 

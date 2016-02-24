@@ -23,7 +23,7 @@
 
 	$config['host'] = "localhost" ;
 	$config['user'] = "root" ;
-	$config['password'] = "redhat11111p" ;
+	$config['password'] = "redhat@11111p" ;
 	$config['database'] = "bluenethack_v0" ;
 
 	$method = $_SERVER['REQUEST_METHOD'];
