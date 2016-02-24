@@ -6,7 +6,8 @@
 	$sql = "INSERT INTO service_request (`id`, `name`, `mobile`, `requirements`, `gender`, `timings`,
 													`min_salary`, `max_salary`, `address`, `area`, `remarks`, `worker_area`, 
 													`work_time`, `created_time`, `date`, `user_id`, `priority`)
-				VALUES (NULL, 
+				VALUES (NULL,
+					'".	$input->root->name."',
 					'".	$input->root->mobile."', 
 					'". $input->root->requirements."', 
 					'". $input->root->gender."', 
@@ -18,7 +19,7 @@
 					'". $input->root->remarks."', 
 					'". $input->root->worker_area."', 
 					'". $input->root->work_time."', 
-					'". $input->root->created_time."', 
+					'". date("Y-m-d")."',
 					'". $input->root->date."', 
 
 
