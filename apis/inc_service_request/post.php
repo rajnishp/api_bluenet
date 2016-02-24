@@ -5,9 +5,7 @@
 
 	$sql = "INSERT INTO bluenet_v0.service_request (`id`, `name`, `mobile`, `requirements`, `gender`, `timings`, 
 													`min_salary`, `max_salary`, `address`, `area`, `remarks`, `worker_area`, 
-													`work_time`, `created_time`, `date`, `me_id`, `cem_id`, `status`, 
-													`match_id`, `match2_id`, `last_updated`, `done_worker_id`, 
-													`fixed_salary`, `user_id`, `priority`) 
+													`work_time`, `created_time`, `date`, `user_id`, `priority`)
 				VALUES (NULL, 
 					'".	$input->root->mobile."', 
 					'". $input->root->requirements."', 
@@ -22,15 +20,13 @@
 					'". $input->root->work_time."', 
 					'". $input->root->created_time."', 
 					'". $input->root->date."', 
-					'". $input->root->me_id."', 
-					'". $input->root->cem_id."', 
-					'". $input->root->status."', 
-					'". $input->root->match_id."', 
-					'". $input->root->match2_id."', 
-					'". $input->root->last_updated."', 
-					'". $input->root->done_worker_id."', 
-					'". $input->root->fixed_salary."', 
-					'". $input->root->user_id."', 
+
+
+
+
+
+
+					'". $input->root->user_id."',
 					'". $input->root->priority"');";
 
 	$service_request = mysqli_query ($db_handle, $sql);

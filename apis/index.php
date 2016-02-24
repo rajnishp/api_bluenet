@@ -25,7 +25,9 @@
 	$config['user'] = "root" ;
 	$config['password'] = "redhat11111p" ;
 	$config['database'] = "bluenethack_v0" ;
-	
+
+	$method = $_SERVER['REQUEST_METHOD'];
+
 	$db_handle = mysqli_connect($config['host'], $config['user'], $config['password'], $config['database']);
 	if (mysqli_connect_errno()) {
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -85,6 +87,9 @@
 			break;
 
 		case "service_request":
+			if($method == "POST"){
+                require_once "inc_service_request/post.php";
+			}else
 			require_once "inc_service_request/service_request.php";
 			break;
 
