@@ -3,7 +3,7 @@
 	$input = json_decode(file_get_contents ("php://input"));
 	var_dump($input);
 
-	$sql = "INSERT INTO bluenet_v0.clients (id, name, email, password, mobile, location) 
+	$sql = "INSERT INTO clients (id, name, email, password, mobile, location)
 				VALUES (NULL, 
 					'".	$input->root->name."', 
 					'". $input->root->email."', 

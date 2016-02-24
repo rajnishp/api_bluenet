@@ -3,7 +3,7 @@
 	$input = json_decode(file_get_contents ("php://input"));
 	var_dump($input);
 
-	$sql = "INSERT INTO bluenet_v0.service_request (`id`, `name`, `mobile`, `requirements`, `gender`, `timings`, 
+	$sql = "INSERT INTO service_request (`id`, `name`, `mobile`, `requirements`, `gender`, `timings`,
 													`min_salary`, `max_salary`, `address`, `area`, `remarks`, `worker_area`, 
 													`work_time`, `created_time`, `date`, `user_id`, `priority`)
 				VALUES (NULL, 
@@ -43,7 +43,7 @@
 			//$area->name == $input->root->area
 			foreach ($area_array as $key => $area) {
 				$area_id = $area -> id;
-				$sql = "INSERT INTO bluenet_v0.sr_area (`id`, `sr_id`)
+				$sql = "INSERT INTO sr_area (`id`, `sr_id`)
 					VALUES ('".$area_id."',
 						'". $new_sr_id."');";
 
@@ -56,7 +56,7 @@
 			}
 		}
 		else {
-			$sql = "INSERT INTO bluenet_v0.area (`id`, `name`)
+			$sql = "INSERT INTO area (`id`, `name`)
 			VALUES (NULL, 
 				'". $input->root->area."');";
 
@@ -66,7 +66,7 @@
 			}
 
 
-			$sql = "INSERT INTO bluenet_v0.sr_area (`id`, `sr_id`)
+			$sql = "INSERT INTO sr_area (`id`, `sr_id`)
 				VALUES (NULL, 
 					'". $new_sr_id."');";
 
@@ -83,7 +83,7 @@
 	
 
 
-	$sql = "INSERT INTO bluenet_v0.skill_name (`id`, `name`)
+	$sql = "INSERT INTO skill_name (`id`, `name`)
 				VALUES (NULL, 
 					'". $input->root->name."');";
 
@@ -95,7 +95,7 @@
 	}
 
 
-	$sql = "INSERT INTO bluenet_v0.skills (`id`, `user_id`, `skill_id`, `creation_date`, `status`, `type`, `employee_id`)
+	$sql = "INSERT INTO skills (`id`, `user_id`, `skill_id`, `creation_date`, `status`, `type`, `employee_id`)
 				VALUES (NULL, 
 					'". $input->root->user_id."', 
 					'". $input->root->skill_id."', 
