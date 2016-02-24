@@ -33,6 +33,9 @@
 	$service_request = mysqli_query ($db_handle, $sql);
 	if(mysqli_connect_errno()){
 		// send 500 html header
+		internalServerError();
+		echo("Error description: " . mysqli_error($con));
+		die();
 	}
 	$new_sr_id = mysql_insert_id($db_handle);
 echo "ID: " . $new_sr_id . "\n";

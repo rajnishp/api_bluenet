@@ -33,6 +33,9 @@
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 
+    function internalServerError(){
+        header('HTTP/1.1 500 Internal Server Error');
+    }
 	$fist = explode("?",$_SERVER[REQUEST_URI]);
 	$route = explode("/",$fist[0]);
 	//var_dump($route);die();
@@ -122,6 +125,7 @@
 
 			break;
 	}
+
 
 
 	mysqli_close($db_handle);
