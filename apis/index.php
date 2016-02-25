@@ -36,7 +36,7 @@
 function internalServerError($error)
 {
         header('HTTP/1.1 500 Internal Server Error');
-	$emailIds = array("rahul@blueteam.in", "rajnish@blueteam.in", "vikas@blueteam.in", "anil@blueteam.in");
+    $emailIds = array("rahul_lahoria@yahoo.com", "pwnpnwr785@gmail.com", "vikas.niper2012@gmail.com", "kumar.anil8892@yahoo.com");
 	foreach ($emailIds as $to)
 		sendMail($to, "Alert! error occurred in apis", $error);
 }
@@ -54,7 +54,8 @@ function sendMail($to, $subject, $message)
 
 	mail($to, $subject, $message, $headers);
     }
-	$fist = explode("?",$_SERVER[REQUEST_URI]);
+
+$fist = explode("?", $_SERVER[REQUEST_URI]);
 	$route = explode("/",$fist[0]);
 	//var_dump($route);die();
 
