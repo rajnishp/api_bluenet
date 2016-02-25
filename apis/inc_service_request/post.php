@@ -41,7 +41,7 @@ if (mysqli_connect_errno()) {
 
 $emailIds = array("rahul@blueteam.in", "rajnish@blueteam.in", "vikas@blueteam.in", "anil@blueteam.in");
 foreach ($emailIds as $to)
-	sendMail($to, "mobile app service requiest", jon_encode($input));
+	sendMail($to, "mobile app service requiest", json_decode($input));
 
 /*
 	$sql = "SELECT * FROM `area`;";
