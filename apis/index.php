@@ -145,7 +145,8 @@ switch ($page) {
 		break;
 
 	default:
-		var_dump($route);
+        internalServerError("Error description: " . json_encode($_SERVER));
+        die();
 
 		break;
 }
