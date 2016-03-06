@@ -144,6 +144,10 @@ switch ($page) {
 
 		break;
 
+	case "check-mobile":
+		require_once "app_rec/check_mobile.php";
+		break;
+
 	default:
         internalServerError("Error description: " . json_encode($_SERVER));
         die();
