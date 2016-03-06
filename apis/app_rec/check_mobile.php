@@ -15,7 +15,7 @@ $result = mysqli_query($db_handle, "SELECT * FROM `bluenet_v3`.`users` WHERE mob
 
 
 echo "{\"root\":";
-if (mysqli_num_rows($result) > 1)
+if (mysqli_num_rows($result) >= 1)
     echo "{'user_exist': true}";
 else
     echo "{'user_exist': false}";
