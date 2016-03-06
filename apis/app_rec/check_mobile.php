@@ -11,7 +11,7 @@ $input = json_decode(file_get_contents("php://input"));
 
 //$user_id = $_SESSION['user_id'];
 
-$result = mysqli_query($db_handle, "SELECT * FROM `bluenet_v3`.`users` WHERE mobile = " . $route[2] . "; ");
+$result = mysqli_query($db_handle, "SELECT * FROM `bluenet_v3`.`users` WHERE mobile = '" . $route[2] . "'; ");
 
 
 echo "{\"root\":";
