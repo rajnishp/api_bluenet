@@ -35,7 +35,7 @@ $sql = "SELECT wcm.user_worker_id, wcm.service_request_id, t.start_time, t.end_t
     . "AND sr.id = t.service_request_id "
     . "AND sr.user_id = u.id";
 
-echo $sql;
+//echo $sql;
 
 $work = mysqli_query($db_handle, $sql);
 
