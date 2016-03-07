@@ -13,8 +13,8 @@ $input = json_decode(file_get_contents("php://input"));
 $workerId = $route[2];
 
 //due to of time zone differece I have added 66160 some more good solution should be found
-$currentTime = date('H:i:s', strtotime($_GET["current_time"]) - 1800 + 66160);
-$currentTime15 = date('H:i:s', strtotime($_GET["current_time"]) + 1800 + 66160);
+$currentTime = date('H:i:s', strtotime($_GET["current_time"]) - 1800 + 65200);
+$currentTime15 = date('H:i:s', strtotime($_GET["current_time"]) + 1800 + 65200);
 
 /*$sql = "SELECT wcm.user_worker_id, wcm.service_request_id "
     . "FROM `bluenet_v3`.worker_customer_match AS wcm "
@@ -33,7 +33,7 @@ $sql = "SELECT wcm.user_worker_id, wcm.service_request_id, t.start_time, t.end_t
     . "AND t.service_request_id = sr.id "
     . "AND sr.user_id = u.id";
 
-echo $sql;
+//echo $sql;
 
 $work = mysqli_query($db_handle, $sql);
 
