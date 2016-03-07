@@ -13,7 +13,7 @@ $input = json_decode(file_get_contents("php://input"));
 $workerId = $route[2];
 
 $currentTime = date('H:i:s', strtotime($_GET["current_time"]));
-$currentTime15 = date('H:i:s', strtotime("+15 minutes", $_GET["current_time"]));
+$currentTime15 = date('H:i:s', strtotime($_GET["current_time"]) + 900);
 
 $sql = "SELECT *\n"
     . "FROM worker_customer_match AS wcm\n"
