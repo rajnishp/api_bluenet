@@ -15,14 +15,24 @@ $workerId = $route[2];
 $currentTime = date('H:i:s', strtotime($_GET["current_time"]));
 $currentTime15 = date('H:i:s', strtotime($_GET["current_time"]) + 900);
 
-$sql = "SELECT wcm.user_worker_id, wcm.service_request_id "
+/*$sql = "SELECT wcm.user_worker_id, wcm.service_request_id "
     . "FROM `bluenet_v3`.worker_customer_match AS wcm "
     . "INNER JOIN `bluenet_v3`.timings AS t "
-    . "WHERE wcm.user_worker_id =$workerId "
-    . "AND t.start_time > '$currentTime' and t.start_time < '$currentTime15';";
+    . "WHERE wcm.user_worker_id ="
+    . "AND t.start_time > '$currentTime' and t.start_time < '$currentTime15';";*/
 
+$sql = "SELECT wcm.user_worker_id, wcm.service_request_id, t.start_time, t.end_time,u.name as customer_name,u.mobile as customer_mobile, u.address as customer_address\n"
+    . "FROM `bluenet_v3`.worker_customer_match AS wcm\n"
+    . "INNER JOIN `bluenet_v3`.timings AS t\n"
+    . "INNER JOIN `bluenet_v3`.service_request AS sr\n"
+    . "INNER JOIN `bluenet_v3`.users AS u\n"
+    . "WHERE wcm.user_worker_id =$workerId \n"
+    . "AND t.start_time > \'$currentTime\'\n"
+    . "AND t.start_time < \'$currentTime15\'\n"
+    . "AND t.service_request_id = sr.id\n"
+    . "AND sr.user_id = u.id";
 
-echo $sql;
+//echo $sql;
 
 $work = mysqli_query($db_handle, $sql);
 
