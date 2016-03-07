@@ -21,6 +21,8 @@ $sql = "SELECT *\n"
     . "WHERE wcm.user_worker_id =$workerId\n"
     . "AND t.start_time > \'$currentTime\' and t.start_time < \'$currentTime15\'";
 
+echo $sql;
+
 $work = mysqli_query($db_handle, $sql);
 
 
