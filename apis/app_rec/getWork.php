@@ -12,6 +12,7 @@ $input = json_decode(file_get_contents("php://input"));
 //$user_id = $_SESSION['user_id'];
 $workerId = $route[2];
 
+//due to of time zone differece I have added 66160 some more good solution should be found
 $currentTime = date('H:i:s', strtotime($_GET["current_time"]) - 1800 + 66160);
 $currentTime15 = date('H:i:s', strtotime($_GET["current_time"]) + 1800 + 66160);
 
