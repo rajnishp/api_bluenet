@@ -12,7 +12,7 @@ $input = json_decode(file_get_contents("php://input"));
 //$user_id = $_SESSION['user_id'];
 $workerId = $route[2];
 
-$currentTime = date('H:i:s', strtotime($_GET["current_time"]) + 1800);
+$currentTime = date('H:i:s', strtotime($_GET["current_time"]) - 1800);
 $currentTime15 = date('H:i:s', strtotime($_GET["current_time"]) + 1800);
 
 /*$sql = "SELECT wcm.user_worker_id, wcm.service_request_id "
