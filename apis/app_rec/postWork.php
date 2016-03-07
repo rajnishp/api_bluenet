@@ -8,7 +8,7 @@
 
 
 $input = json_decode(file_get_contents("php://input"));
-var_dump($input);
+//var_dump($input);
 
 /*
  * INSERT INTO `bluenet_v3`.`worker_client_logs`
@@ -30,16 +30,16 @@ if ($input->root->start_time) {
 					'" . $startTime . "',
 					'" . $endTime . "',
 					'" . date("Y-m-d H:i:s") . "',
-					'" . $input->root->user_worker_id . "',
+					'" . $route[2] . "',
 					'" . $input->root->device_id . "',
 					'" . $input->root->gps_location . "');";
 
 } else {
-    $endTime = date('H:i:s', strtotime($input->root->start_time));
+    $endTime = date('H:i:s', strtotime($input->root->end_time));
     $id = $input->root->id;
     $sql = "UPDATE `bluenet_v3`.`worker_client_logs` SET `end_time` = '" . $endTime . "' WHERE `worker_client_logs`.`id` = " . $id . ";";
 }
-echo "query: " . $sql . "\n";
+//echo "query: " . $sql . "\n";
 $service_request = mysqli_query($db_handle, $sql);
 if (mysqli_connect_errno()) {
     /* send 500 html header*/
@@ -48,3 +48,8 @@ if (mysqli_connect_errno()) {
     die();
 
 }
+//mysqli_insert_id($con)
+
+$input->root->id = mysqli_insert_id($db_handle);
+
+print json_encode($input);
