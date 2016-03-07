@@ -25,7 +25,7 @@ echo $sql;
 
 $work = mysqli_query($db_handle, $sql);
 
-var_dump(mysqli_fetch_assoc($work));
+var_dump($work);
 
 if (mysqli_connect_errno()) {
     /* send 500 html header*/
