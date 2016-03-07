@@ -25,7 +25,15 @@ echo $sql;
 
 $work = mysqli_query($db_handle, $sql);
 
+var_dump(mysqli_fetch_assoc($work));
 
-echo "{\"root\":";
+if (mysqli_connect_errno()) {
+    /* send 500 html header*/
+    internalServerError("Error description: " . mysqli_error($db_handle));
+    echo("Error description: " . mysqli_error($db_handle));
+    die();
+}
+
+echo "{\"root\":\"{work:\"";
 print json_encode(mysqli_fetch_assoc($work));
-echo "}";
+echo "}}";
