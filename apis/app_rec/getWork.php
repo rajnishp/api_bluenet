@@ -15,11 +15,13 @@ $workerId = $route[2];
 $currentTime = date('H:i:s', strtotime($_GET["current_time"]));
 $currentTime15 = date('H:i:s', strtotime($_GET["current_time"]) + 900);
 
-$sql = "SELECT wcm.user_worker_id, wcm.service_request_id "
+/*$sql = "SELECT wcm.user_worker_id, wcm.service_request_id "
     . "FROM worker_customer_match AS wcm "
     . "INNER JOIN timings AS t "
     . "WHERE wcm.user_worker_id =$workerId "
-    . "AND t.start_time > '$currentTime' and t.start_time < '$currentTime15';";
+    . "AND t.start_time > '$currentTime' and t.start_time < '$currentTime15';";*/
+
+$sql = "SELECT * FROM `worker_client_logs` LIMIT 0, 30 ";
 
 echo $sql;
 
