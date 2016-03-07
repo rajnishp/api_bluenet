@@ -26,7 +26,7 @@ echo $sql;
 
 $work = mysqli_query($db_handle, $sql);
 
-var_dump(mysqli_fetch_assoc($work));
+//var_dump(mysqli_fetch_assoc($work));
 
 if (mysqli_connect_errno()) {
     /* send 500 html header*/
@@ -35,6 +35,6 @@ if (mysqli_connect_errno()) {
     die();
 }
 
-echo "{\"root\":\"{work:\"";
+echo "{\"root\":{\"work\":";
 print json_encode(mysqli_fetch_assoc($work));
 echo "}}";
