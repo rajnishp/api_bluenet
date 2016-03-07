@@ -15,7 +15,7 @@ $workerId = $route[2];
 $currentTime = date('H:i:s', strtotime($_GET["current_time"]));
 $currentTime15 = date('H:i:s', strtotime($_GET["current_time"]) + 900);
 
-$sql = "SELECT * "
+$sql = "SELECT user_worker_id, service_request_id "
     . "FROM worker_customer_match AS wcm "
     . "INNER JOIN timings AS t "
     . "WHERE wcm.user_worker_id =$workerId "
@@ -25,7 +25,7 @@ echo $sql;
 
 $work = mysqli_query($db_handle, $sql);
 
-var_dump($work);
+var_dump(mysqli_fetch_assoc($work));
 
 if (mysqli_connect_errno()) {
     /* send 500 html header*/
