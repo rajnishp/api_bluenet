@@ -148,6 +148,13 @@ switch ($page) {
 		require_once "app_rec/check_mobile.php";
 		break;
 
+	case "work":
+		if ($method == "POST")
+			require_once "app_rec/postWork.php";
+		else
+			require_once "app_rec/getWork.php";
+		break;
+
 	default:
         internalServerError("Error description: " . json_encode($_SERVER));
         die();
