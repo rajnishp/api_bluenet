@@ -19,7 +19,7 @@ $sql = "SELECT *\n"
     . "FROM worker_customer_match AS wcm\n"
     . "INNER JOIN timings AS t\n"
     . "WHERE wcm.user_worker_id =$workerId\n"
-    . "AND t.start_time > \'$currentTime\' and t.start_time < \'$currentTime15\'";
+    . "AND t.start_time > '$currentTime' and t.start_time < '$currentTime15'";
 
 echo $sql;
 
