@@ -29,8 +29,10 @@ $sql = "SELECT wcm.user_worker_id, wcm.service_request_id, t.start_time, t.end_t
     . "INNER JOIN `bluenet_v3`.users AS u "
     . "WHERE wcm.user_worker_id =$workerId "
     . "AND t.start_time > '$currentTime' "
+    . "AND wcm.service_request_id = t.service_request_id "
     . "AND t.start_time < '$currentTime15' "
     . "AND t.service_request_id = sr.id "
+    . "AND sr.id = t.service_request_id "
     . "AND sr.user_id = u.id";
 
 echo $sql;
