@@ -13,12 +13,15 @@ $input = json_decode(file_get_contents("php://input"));
 
 $result = mysqli_query($db_handle, "SELECT * FROM `bluenet_v3`.`users` WHERE mobile = '" . $route[2] . "'; ");
 
-
-echo "{\"root\":";
+$details = mysqli_fetch_assoc($result);
 if (mysqli_num_rows($result) >= 1)
-    echo "{\"user_exist\": true}";
+    $details['user_exist'] = ture;
 else
-    echo "{\"user_exist\": false}";
-echo "}";
+    $details['user_exist'] = false;
+
+
+echo "{\"root\":{\"user\":";
+print json_encode($details);
+echo "}}";
 
 ?>
