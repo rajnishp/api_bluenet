@@ -12,16 +12,26 @@
 					'". $input->root->gps_location."');";
 
 	$user = mysqli_query ($db_handle, $sql);
-	if(mysqli_connect_errno()){
-		/* send 500 html header*/
-		internalServerError("Error description: " . mysqli_error($db_handle));
-		echo("Error description: " . mysqli_error($db_handle));
-		die();
-		internalServerError("Error description: " . mysqli_error($db_handle));
-		echo("Error description: " . mysqli_error($db_handle));
-		die();
-	}
 
-	
+$sql = "INSERT INTO `bluenet_v3`.`users` ( `id` , `name` , `mobile` , `email` , `password` , `type` , `address` , `area` ," .
+	" `creation` ,  `gps_location` , `device_id` )
+			VALUES (NULL ,
+			'" . $input->root->name . "',
+			'" . $input->root->mobile . "',
+			'" . $input->root->email . "',
+			'" . $input->root->password . "',
+			'customer',
+			'',
+			'',
+			'" . date("Y-m-d H:i:s") . "',
+			'" . $input->root->gps_location . "',
+			'" . $input->root->device_id . "'
+			);";
+
+$result = mysqli_query($db_handle, $sql);
+
+$input->root->id = mysqli_insert_id($db_handle);
+
+print json_encode($input);
 
 ?>
