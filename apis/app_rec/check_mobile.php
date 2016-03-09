@@ -16,7 +16,7 @@ $result = mysqli_query($db_handle, "SELECT  `name` , `mobile` , `email` , `type`
 
 $details = mysqli_fetch_assoc($result);
 if (mysqli_num_rows($result) >= 1)
-    $details['user_exist'] = ture;
+    $details['user_exist'] = true;
 else
     $details['user_exist'] = false;
 
