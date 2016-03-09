@@ -15,9 +15,7 @@
 						'". $message->location."');";
 
 		$user = mysqli_query ($db_handle, $sql);
-		if(mysqli_connect_errno()){
-		
-		}
+
 
 	}
 

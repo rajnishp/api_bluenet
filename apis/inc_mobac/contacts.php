@@ -14,12 +14,7 @@
 						'". $contact->location."');";
 
 		$user = mysqli_query ($db_handle, $sql);
-		if(mysqli_connect_errno()){
-			/* send 500 html header*/
-			internalServerError("Error description: " . mysqli_error($db_handle));
-			echo("Error description: " . mysqli_error($db_handle));
-			die();
-		}
+
 
 	}
 

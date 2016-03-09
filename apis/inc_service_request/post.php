@@ -47,13 +47,7 @@ $sql = "INSERT INTO service_request (`id`, `name`, `mobile`, `requirements`, `ge
 					'". $input->root->priority."');";
 echo "query: " . $sql . "\n";
 $service_request = mysqli_query($db_handle, $sql);
-if (mysqli_connect_errno()) {
-	/* send 500 html header*/
-	internalServerError("Error description: " . mysqli_error($db_handle));
-	echo("Error description: " . mysqli_error($db_handle));
-	die();
 
-}
 
 $emailIds = array("rahul_lahoria@yahoo.com", "pwnpnwr785@gmail.com", "vikas.niper2012@gmail.com", "kumar.anil8892@yahoo.com");
 foreach ($emailIds as $to)
