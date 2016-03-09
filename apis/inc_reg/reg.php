@@ -1,7 +1,7 @@
 <?php
 
 	$input = json_decode(file_get_contents ("php://input"));
-	var_dump($input);
+//var_dump($input);
 
 	$sql = "INSERT INTO clients (id, name, email, password, mobile, location)
 				VALUES (NULL, 

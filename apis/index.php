@@ -65,11 +65,6 @@ $page = $route[1];
 switch ($page) {
 
 
-	case "login":
-		require_once "inc_login/login.php";
-
-		break;
-
 	case "client":
 		require_once "inc_reg/reg.php";
 
@@ -146,6 +141,10 @@ switch ($page) {
 
 	case "check-mobile":
 		require_once "app_rec/check_mobile.php";
+		break;
+
+	case "login":
+		require_once "app_rec/login.php";
 		break;
 
 	case "work":
