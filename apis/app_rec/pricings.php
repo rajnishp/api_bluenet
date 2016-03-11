@@ -11,7 +11,7 @@ $input = json_decode(file_get_contents("php://input"));
 
 //$user_id = $_SESSION['user_id'];
 
-$sql = "SELECT  `time` , `cost` ,
+$sql = "SELECT  `time` , `cost`
                   FROM `bluenet_v3`.`plans`
                   WHERE service = '" . $route[2] . "'
                         AND service_type = 'monthly'; ";
