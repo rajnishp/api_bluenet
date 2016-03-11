@@ -15,7 +15,7 @@ $sql = "SELECT  `time` , `cost`
                   FROM `bluenet_v3`.`plans`
                   WHERE service = '" . $route[2] . "'
                         AND service_type = 'monthly'; ";
-echo $sql;
+//echo $sql;
 $result = mysqli_query($db_handle,
             $sql);
 
