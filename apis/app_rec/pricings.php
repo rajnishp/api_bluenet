@@ -11,11 +11,13 @@ $input = json_decode(file_get_contents("php://input"));
 
 //$user_id = $_SESSION['user_id'];
 
-$result = mysqli_query($db_handle,
-            "SELECT  `time` , `cost` ,
+$sql = "SELECT  `time` , `cost` ,
                   FROM `bluenet_v3`.`plans`
                   WHERE service = '" . $route[2] . "',
-                        service_type = 'monthly'; ");
+                        service_type = 'monthly'; ";
+echo $sql;
+$result = mysqli_query($db_handle,
+            $sql);
 
 
 for($costsArr = array(); $cost = mysqli_fetch_assoc($result); $costsArr[] = $cost);
