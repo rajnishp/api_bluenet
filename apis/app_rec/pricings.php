@@ -13,8 +13,8 @@ $input = json_decode(file_get_contents("php://input"));
 
 $sql = "SELECT  `time` , `cost` ,
                   FROM `bluenet_v3`.`plans`
-                  WHERE service = '" . $route[2] . "',
-                        service_type = 'monthly'; ";
+                  WHERE service = '" . $route[2] . "'
+                        AND service_type = 'monthly'; ";
 echo $sql;
 $result = mysqli_query($db_handle,
             $sql);
