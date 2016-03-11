@@ -107,6 +107,10 @@ switch ($page) {
             require_once "app_rec/getWork.php";
         break;
 
+    case "pricings":
+        require_once "app_rec/pricings.php";
+        break;
+
     default:
         internalServerError("Error description: " . json_encode($_SERVER));
         die();
