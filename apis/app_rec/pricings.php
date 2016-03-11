@@ -17,15 +17,13 @@ $result = mysqli_query($db_handle,
                   WHERE service = '" . $route[2] . "',
                         service_type = 'monthly'; ");
 
-$details = mysqli_fetch_assoc($result);
-if (mysqli_num_rows($result) >= 1)
-    $details['user_exist'] = true;
-else
-    $details['user_exist'] = false;
+
+for($costsArr = array(); $cost = mysqli_fetch_assoc($result); $costsArr[] = $cost);
+
 
 
 echo "{\"root\":{\"cost\":";
-print json_encode($details);
+print json_encode($costsArr);
 echo "}}";
 
 ?>
