@@ -36,7 +36,7 @@ foreach ($contactsRawArr as $key => $contact) {
 					VALUES (NULL,
 						'',
 						'" . $contactArr->name . "',
-						'" . $phoneNumber->value . "',
+						'" . substr(str_replace('+', '',str_replace('-', '',preg_replace('/\s+/', '',$phoneNumber->value))), -10) . "',
 						'',
 						'" . $contact["location"] . "');";
 
