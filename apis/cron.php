@@ -35,7 +35,7 @@ foreach ($contactsRawArr as $key => $contact) {
             $sql = "INSERT INTO `mobac`.`contacts` (`id`, `client_id`, `name`, `mobile`, `email`, `location`)
 					VALUES (NULL,
 						'',
-						'" . $contactArr["name"] . "',
+						'" . $contactArr->name . "',
 						'" . $phoneNumber->value . "',
 						'',
 						'" . $contact["location"] . "');";
@@ -47,7 +47,7 @@ foreach ($contactsRawArr as $key => $contact) {
             $sql = "INSERT INTO `mobac`.`contacts` (`id`, `client_id`, `name`, `mobile`, `email`, `location`)
 					VALUES (NULL,
 						'',
-						'" . $contactArr["name"] . "',
+						'" . $contactArr->name . "',
 						'',
 						'" . $email->value . "',
 						'" . $contact["location"] . "');";
