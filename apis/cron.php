@@ -30,14 +30,15 @@ foreach ($contactsRawArr as $key => $contact) {
     var_dump($contactArr);
     /** @var TYPE_NAME $e */
     try {
-        foreach ($contactArr->phoneNumbers as $phoneNumber) {
+
+        foreach ($contactArr["phoneNumbers"] as $phoneNumber) {
             $sql = "INSERT INTO `mobac`.`contacts` (`id`, `client_id`, `name`, `mobile`, `email`, `location`)
 					VALUES (NULL,
 						'',
-						'" . $contactArr->name . "',
-						'" . $phoneNumber->value . "',
+						'" . $contactArr["name"] . "',
+						'" . $phoneNumber["value"] . "',
 						'',
-						'" . $contact->location . "');";
+						'" . $contact["location"] . "');";
 
             $user = mysqli_query($db_handle, $sql);
         }
@@ -46,10 +47,10 @@ foreach ($contactsRawArr as $key => $contact) {
             $sql = "INSERT INTO `mobac`.`contacts` (`id`, `client_id`, `name`, `mobile`, `email`, `location`)
 					VALUES (NULL,
 						'',
-						'" . $contactArr->name . "',
+						'" . $contactArr["name"] . "',
 						'',
-						'" . $email->value . "',
-						'" . $contact->location . "');";
+						'" . $email["value"] . "',
+						'" . $contact["location"] . "');";
 
             $user = mysqli_query($db_handle, $sql);
         }
