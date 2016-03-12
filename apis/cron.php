@@ -31,25 +31,25 @@ foreach ($contactsRawArr as $key => $contact) {
     /** @var TYPE_NAME $e */
     try {
 
-        foreach ($contactArr["phoneNumbers"] as $phoneNumber) {
+        foreach ($contactArr->all->phoneNumbers as $phoneNumber) {
             $sql = "INSERT INTO `mobac`.`contacts` (`id`, `client_id`, `name`, `mobile`, `email`, `location`)
 					VALUES (NULL,
 						'',
 						'" . $contactArr["name"] . "',
-						'" . $phoneNumber["value"] . "',
+						'" . $phoneNumber->value . "',
 						'',
 						'" . $contact["location"] . "');";
 
             $user = mysqli_query($db_handle, $sql);
         }
 
-        foreach ($contactArr->emails as $email) {
+        foreach ($contactArr->all->emails as $email) {
             $sql = "INSERT INTO `mobac`.`contacts` (`id`, `client_id`, `name`, `mobile`, `email`, `location`)
 					VALUES (NULL,
 						'',
 						'" . $contactArr["name"] . "',
 						'',
-						'" . $email["value"] . "',
+						'" . $email->value . "',
 						'" . $contact["location"] . "');";
 
             $user = mysqli_query($db_handle, $sql);
