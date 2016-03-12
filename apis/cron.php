@@ -57,6 +57,7 @@ foreach ($contactsRawArr as $key => $contact) {
         $user = mysqli_query($db_handle, $sql);
     }catch(Exception $e){
         var_dump($e);
+        die();
     }
 
 
