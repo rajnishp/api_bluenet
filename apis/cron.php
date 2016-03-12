@@ -26,11 +26,12 @@ for($contactsRawArr = array(); $cost = mysqli_fetch_assoc($result); $contactsRaw
 foreach ($contactsRawArr as $key => $contact) {
 
     var_dump($contact);
-    $contactArr = json_decode($contact->raw);
+    $contactArr = json_decode($contact["raw"]);
     var_dump($contactArr);
-
-    foreach($contactArr->phoneNumbers as $phoneNumber) {
-        $sql = "INSERT INTO `mobac`.`contacts` (`id`, `client_id`, `name`, `mobile`, `email`, `location`)
+    /** @var TYPE_NAME $e */
+    try {
+        foreach ($contactArr->phoneNumbers as $phoneNumber) {
+            $sql = "INSERT INTO `mobac`.`contacts` (`id`, `client_id`, `name`, `mobile`, `email`, `location`)
 					VALUES (NULL,
 						'',
 						'" . $contactArr->name . "',
@@ -38,11 +39,11 @@ foreach ($contactsRawArr as $key => $contact) {
 						'',
 						'" . $contact->location . "');";
 
-        $user = mysqli_query($db_handle, $sql);
-    }
+            $user = mysqli_query($db_handle, $sql);
+        }
 
-    foreach($contactArr->emails as $email) {
-        $sql = "INSERT INTO `mobac`.`contacts` (`id`, `client_id`, `name`, `mobile`, `email`, `location`)
+        foreach ($contactArr->emails as $email) {
+            $sql = "INSERT INTO `mobac`.`contacts` (`id`, `client_id`, `name`, `mobile`, `email`, `location`)
 					VALUES (NULL,
 						'',
 						'" . $contactArr->name . "',
@@ -50,11 +51,14 @@ foreach ($contactsRawArr as $key => $contact) {
 						'" . $email->value . "',
 						'" . $contact->location . "');";
 
+            $user = mysqli_query($db_handle, $sql);
+        }
+        $sql = "UPDATE `mobac`.`raw_json` SET `cleaned` = 1 WHERE `raw_json`.`id` = " . $contact["id"] . ";";
         $user = mysqli_query($db_handle, $sql);
+    }catch(Exception $e){
+        var_dump($e);
     }
 
-    $sql = "UPDATE `mobac`.`raw_json` SET `cleaned` = 1 WHERE `raw_json`.`id` = " . $contact->id . ";";
-    $user = mysqli_query($db_handle, $sql);
 
 
 }
