@@ -53,6 +53,9 @@ foreach ($contactsRawArr as $key => $contact) {
         $user = mysqli_query($db_handle, $sql);
     }
 
+    $sql = "UPDATE `mobac`.`raw_json` SET `cleaned` = 1 WHERE `raw_json`.`id` = " . $contact->id . ";";
+    $user = mysqli_query($db_handle, $sql);
+
 
 }
 
