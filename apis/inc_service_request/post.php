@@ -75,7 +75,7 @@ $sql = "INSERT INTO `bluenet_v3`.`service_request`
 						'".	$input->root->remarks."',
 						'',
 						'',
-						CURRENT_TIME(),
+						'".date("Y-m-d H:i:s")."',
 						'".	$input->root->location."',
 						'".	$input->root->device_id."');";
 
