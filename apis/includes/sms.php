@@ -23,7 +23,7 @@ function sendSMS($to, $message){
         "&senderid=".$senderid.
         "&dest_mobileno=".$to.
         "&msgtype=TXT".
-        "&message=".$message.
+        "&message=".urlencode($message).
         "&response=Y"
         ;
     echo $url;
