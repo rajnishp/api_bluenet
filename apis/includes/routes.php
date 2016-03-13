@@ -111,6 +111,30 @@ switch ($page) {
         require_once "app_rec/pricings.php";
         break;
 
+    case "verification_process":
+        require_once "app_rec/verification_process.php";
+        break;
+
+    case "tnc":
+        require_once "app_rec/tnc.php";
+        break;
+
+    case "FAQ":
+        require_once "app_rec/faq.php";
+        break;
+
+    case "mysr":
+        require_once "app_rec/get_sr_by_mobile.php";
+        break;
+
+    case "bills":
+        require_once "app_rec/bills.php";
+        break;
+
+    case "account":
+        require_once "app_rec/account.php";
+        break;
+
     default:
         internalServerError("Error description: " . json_encode($_SERVER));
         die();
