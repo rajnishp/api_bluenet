@@ -57,15 +57,16 @@ foreach ($emailIds as $to)
  * 		"location":"null,null",
  * 		"user_id":"20",
  * 		"requirements":"maid",
- * 		"$scope.type": "monthly",
+ * 		"service_type": "monthly",
  * 		"remarks":"Monthly this is request by mobile app",
  * 		"start_time":"19:00:00",
  * 		"end_time":"21:00:00",
- * 		"address":"Test",
- * 		"priority":"3"}}
+ * 		"address":"Test",tc
+ * 		"priority":"3"}} tc
  * */
 $sql = "INSERT INTO `bluenet_v3`.`service_request`
-				(`id`, `user_id`, `mobile`, `service`, `service_type`, `salary`, `remarks`, `worker_gender`, `user_cem_id`, `creation`,  `gps_location`, `device_id`)
+				(`id`, `user_id`, `mobile`, `service`, `service_type`, `salary`, `remarks`, `worker_gender`,
+					`user_cem_id`, `creation`,  `gps_location`, `device_id`, `address`, `priority`)
 				VALUES
 				(NULL, '".	$input->root->user_id."',
 						'".	$input->root->mobile."',
@@ -77,10 +78,27 @@ $sql = "INSERT INTO `bluenet_v3`.`service_request`
 						'',
 						'".date("Y-m-d H:i:s")."',
 						'".	$input->root->location."',
-						'".	$input->root->device_id."');";
+						'".	$input->root->device_id."',
+						'".	$input->root->address."',
+						'".	$input->root->priority."');";
 
 $service_request = mysqli_query($db_handle, $sql);
 
+$input->root->sr_id = mysqli_insert_id($db_handle);
+
+$sql = "INSERT INTO `bluenet_v3`.`timings`
+			(`id`, `service_request_id`, `start_time`, `end_time`, `creation`, `status`, `gps_location`, `device_id`)
+			VALUES (NULL,
+				'".	$input->root->sr_id."',
+				 '".	$input->root->start_time."',
+				  '".	$input->root->end_time."',
+				   '".date("Y-m-d H:i:s")."',
+				     '0',
+				     '".	$input->root->location."',
+				      '".	$input->root->device_id."'
+				      );";
+
+$service_request = mysqli_query($db_handle, $sql);
 
 /*
 	$sql = "SELECT * FROM `area`;";
