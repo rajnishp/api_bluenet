@@ -55,7 +55,9 @@ foreach ($emailIds as $to)
  * 		"name":"Rahul Lahoria",
  * 		"mobile":"9599075955",
  * 		"location":"null,null",
+ * 		"user_id":"20",
  * 		"requirements":"maid",
+ * 		"$scope.type": "monthly",
  * 		"remarks":"Monthly this is request by mobile app",
  * 		"start_time":"19:00:00",
  * 		"end_time":"21:00:00",
@@ -63,9 +65,21 @@ foreach ($emailIds as $to)
  * 		"priority":"3"}}
  * */
 $sql = "INSERT INTO `bluenet_v3`.`service_request`
-				(`id`, `user_id`, `mobile`, `service`, `service_type`, `salary`, `remarks`, `worker_gender`, `user_cem_id`, `creation`, `last_update`, `gps_location`, `device_id`)
+				(`id`, `user_id`, `mobile`, `service`, `service_type`, `salary`, `remarks`, `worker_gender`, `user_cem_id`, `creation`,  `gps_location`, `device_id`)
 				VALUES
-				(NULL, \'3\', \'9989898982\', \'maid\', \'monthly\', \'8900\', \'safdas\', \'male\', \'3\', \'2016-03-07 00:00:00\', \'2016-03-07 16:02:25\', \'31.123,1231,31\', \'2asfd\');";
+				(NULL, '".	$input->root->user_id."',
+						'".	$input->root->mobile."',
+						'".	$input->root->requirements."',
+						'".	$input->root->service_type."',
+						'',
+						'".	$input->root->remarks."',
+						'',
+						'',
+						CURRENT_TIME(),
+						'".	$input->root->location."',
+						'".	$input->root->device_id."');";
+
+$service_request = mysqli_query($db_handle, $sql);
 
 
 /*
