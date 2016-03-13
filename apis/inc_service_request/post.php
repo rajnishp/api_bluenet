@@ -98,8 +98,17 @@ $sql = "INSERT INTO `bluenet_v3`.`timings`
 				      '".	$input->root->device_id."'
 				      );";
 
+/*
+ * Dear Customer, your request for {{}} has been received successfully at {{time}}, request will be processed shortly.
+ * Dear Customer, we have received payment of {{amount}} for sr_id by {{cem_name}} ({{cem_mobile}}) {{cem_id}} at {{time}}. Txn. ID: {{id}}
+ * */
 $service_request = mysqli_query($db_handle, $sql);
 
+$message = "Dear Customer, your request for "
+			.$input->root->requirements
+			." has been received successfully at "
+			.date("Y-m-d H:i:s").", request will be processed shortly.";
+sendSMS($input->root->mobile, $message);
 /*
 	$sql = "SELECT * FROM `area`;";
 	$area_array = mysqli_query ($db_handle, $sql);
