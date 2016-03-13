@@ -38,11 +38,6 @@ $sql = "INSERT INTO service_request (`id`, `name`, `mobile`, `requirements`, `ge
 					'". date("Y-m-d")."',
 					'" . $input->root->date . "',
 
-
-
-
-
-
 					'". $input->root->user_id."',
 					'". $input->root->priority."');";
 echo "query: " . $sql . "\n";
@@ -52,6 +47,26 @@ $service_request = mysqli_query($db_handle, $sql);
 $emailIds = array("rahul_lahoria@yahoo.com", "pwnpnwr785@gmail.com", "vikas.niper2012@gmail.com", "kumar.anil8892@yahoo.com");
 foreach ($emailIds as $to)
 	sendMail($to, "mobile app service requiest", json_encode($input));
+
+/*
+ *
+ * {"root":
+ * 	{
+ * 		"name":"Rahul Lahoria",
+ * 		"mobile":"9599075955",
+ * 		"location":"null,null",
+ * 		"requirements":"maid",
+ * 		"remarks":"Monthly this is request by mobile app",
+ * 		"start_time":"19:00:00",
+ * 		"end_time":"21:00:00",
+ * 		"address":"Test",
+ * 		"priority":"3"}}
+ * */
+$sql = "INSERT INTO `bluenet_v3`.`service_request`
+				(`id`, `user_id`, `mobile`, `service`, `service_type`, `salary`, `remarks`, `worker_gender`, `user_cem_id`, `creation`, `last_update`, `gps_location`, `device_id`)
+				VALUES
+				(NULL, \'3\', \'9989898982\', \'maid\', \'monthly\', \'8900\', \'safdas\', \'male\', \'3\', \'2016-03-07 00:00:00\', \'2016-03-07 16:02:25\', \'31.123,1231,31\', \'2asfd\');";
+
 
 /*
 	$sql = "SELECT * FROM `area`;";

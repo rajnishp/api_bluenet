@@ -1,0 +1,17 @@
+# Test using included Django test app
+# First install python-django
+# Then launch the app in another terminal by doing
+#   cd testapp
+#   python manage.py testserver test_data.json
+# Once launched, tests can be executed via:
+# 	python resttest.py https://blueteam.in/api smokeTest.yaml
+---
+- config:
+    - testset: "Tests using test app"
+
+- test: # create entity by POST
+    - name: "Create person"
+    - url: "/services"
+    - validators:
+            - compare: {"root":[{"id":"1","name":"maid","img_url":"http://bluetsdeam.in/static/images/maid.jpeg","plans":[{"name":"On-Demand","price":"149 Rs/hr"},{"name":"Monthly","price":"depend upon number of hours"}],"status":"1","creation_time":"2016-02-17 21:12:04","last_updated":"0000-00-00 00:00:00"},{"id":"2","name":"cook","img_url":"http://blueteam.in/static/images/cook.jpeg","plans":[{"name":"On-Demand","price":"179 Rs/hr"},{"name":"Monthly","price":"Depend upon number of hours"}],"status":"1","creation_time":"2016-02-17 21:13:19","last_updated":"0000-00-00 00:00:00"},{"id":"3","name":"Driver","img_url":"http://blueteam.in/static/images/driver.png","plans":[{"name":"On-Demand","price":"123 Rs/hr"},{"name":"Monthly","price":"Depend upon number of hours"}],"status":"1","creation_time":"2016-02-17 21:12:04","last_updated":"0000-00-00 00:00:00"},{"id":"4","name":"BabbySitter","img_url":"http://blueteam.in/static/images/babysitter.jpeg","plans":[{"name":"On-Demand","price":"149 Rs/hr"},{"name":"Monthly","price":"Depend upon number of hours"}],"status":"1","creation_time":"2016-02-17 21:12:04","last_updated":"0000-00-00 00:00:00"},{"id":"5","name":"Security Guard","img_url":"http://blueteam.in/static/images/securityguard.jpeg","plans":[{"name":"On-Demand","price":"179 Rs/hr"},{"name":"Monthly","price":"Depend upon number of hours"}],"status":"1","creation_time":"2016-02-17 21:12:04","last_updated":"0000-00-00 00:00:00"},{"id":"6","name":"Plumber","img_url":"http://blueteam.in/static/images/plumber.jpeg","plans":[{"name":"On-Demand","price":"199 Rs/hr"},{"name":"AMC","price":"1500 /year"}],"status":"1","creation_time":"2016-03-03 22:32:04","last_updated":"0000-00-00 00:00:00"},{"id":"7","name":"Electrician","img_url":"http://blueteam.in/static/images/electrician.jpeg","plans":[{"name":"On-Demand","price":"199 Rs/hr"},{"name":"AMC","price":"1500 /year"}],"status":"1","creation_time":"2016-03-03 22:32:04","last_updated":"0000-00-00 00:00:00"},{"id":"8","name":"Carpenter","img_url":"http://blueteam.in/static/images/carpenter.jpg","plans":[{"name":"On-Demand","price":"199 Rs/hr"},{"name":"AMC","price":"1500 /year"}],"status":"1","creation_time":"2016-03-03 22:32:04","last_updated":"0000-00-00 00:00:00"}]}
+    - headers: {Content-Type: application/json}

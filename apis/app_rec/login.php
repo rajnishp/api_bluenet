@@ -11,7 +11,7 @@ $input = json_decode(file_get_contents("php://input"));
 
 //$user_id = $_SESSION['user_id'];
 
-$result = mysqli_query($db_handle, "SELECT  `name` , `mobile` , `email` , `type` , `address` , `area` ," .
+$result = mysqli_query($db_handle, "SELECT  `id`,`name` , `mobile` , `email` , `type` , `address` , `area` ," .
     " `creation` ,  `gps_location` , `device_id`  FROM `bluenet_v3`.`users` WHERE mobile = '" . $input->root->mobile . "'
       AND password = '" . $input->root->password . "'; ");
 
