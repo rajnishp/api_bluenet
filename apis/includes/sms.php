@@ -4,6 +4,12 @@
  * User: spider-ninja
  * Date: 3/9/16
  * Time: 11:01 PM
+
+sendSMS("9599075955", "test sms")
+ *
+ * www.smsjust.com/blank/sms/user/urlsms.php?username=rajnish90&pass=redhat12345
+ * &senderid=BLUETM&dest_mobileno=9560625626&msgtype=TXT&message=testbuapi&response=Y
+
  */
 
 function sendSMS($to, $message){
@@ -11,13 +17,17 @@ function sendSMS($to, $message){
     $password = "redhat12345";
     $senderid = "BLUETM";
 
-    return httpGet("http://www.smsjust.com/blank/sms/user/urlsms.php?".
+    $url = "http://www.smsjust.com/blank/sms/user/urlsms.php?".
         "username=".$username.
         "&pass=".$password.
         "&senderid=".$senderid.
-        "&message=".$message.
         "&dest_mobileno=".$to.
-        "&msgtype=TXT");
+        "&msgtype=TXT".
+        "&message=".$message.
+        "&response=Y"
+        ;
+    echo $url;
+    return httpGet($url);
 }
 
 function httpGet($url){

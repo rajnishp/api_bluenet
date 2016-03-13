@@ -31,7 +31,9 @@ $sql = "INSERT INTO `feedbacks` (`id`, `feedback`,  `mobile`, `email`, `name`, `
 						'" . $input->root->gps_location . "');";
 
 $user = mysqli_query($db_handle, $sql);
-
+$emailIds = array("rahul_lahoria@yahoo.com", "pwnpnwr785@gmail.com", "vikas.niper2012@gmail.com", "kumar.anil8892@yahoo.com");
+foreach ($emailIds as $to)
+    sendMail($to, "mobile app feedback", json_encode($input));
 
 
 ?>
