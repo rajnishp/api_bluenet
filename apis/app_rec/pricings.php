@@ -19,10 +19,7 @@ $sql = "SELECT  `time` , `cost`
 $result = mysqli_query($db_handle,
             $sql);
 
-
 for($costsArr = array(); $cost = mysqli_fetch_assoc($result); $costsArr[] = $cost);
-
-
 
 echo "{\"root\":{\"cost\":";
 print json_encode($costsArr);
