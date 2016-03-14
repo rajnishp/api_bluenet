@@ -26,7 +26,7 @@ function sendSMS($to, $message){
         "&message=".urlencode($message).
         "&response=Y"
         ;
-    echo $url;
+    //echo $url;
     return httpGet($url);
 }
 

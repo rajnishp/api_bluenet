@@ -32,7 +32,7 @@ $sql = "UPDATE `bluenet_v3`.`service_request` SET `user_cem_id` = '" . $input->r
 $result = mysqli_query($db_handle, $sql);
 
 $message = "Dear ".$details['name'].", we have received payment of "
-            . $input->root->amount . " for " . $input->root->sr_id . " by "
+            . $input->root->amount . " Rs for " . $input->root->sr_id . " by "
             . $input->root->name
             . "(" . $input->root->mobile . ") EMP_ID: BT-2015-"
             . $input->root->user_id . " at "
