@@ -17,6 +17,7 @@ $sql = "SELECT  *  FROM `bluenet_v3`.`service_request` as sr"
 . "AND sr.id = t.service_request_id "
 . "; ";
 $result = mysqli_query($db_handle, $sql);
+echo $sql;
 
 $details = mysqli_fetch_assoc($result);
 
