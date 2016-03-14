@@ -34,7 +34,7 @@ $result = mysqli_query($db_handle, $sql);
 $message = "Dear ".$details['name'].", we have received payment of "
             . $input->root->amount . " Rs for " . $input->root->sr_id . " by "
             . $input->root->name
-            . "(" . $input->root->mobile . ") EMP_ID: BT-2015-"
+            . "EMP_ID: BT-2015-"
             . $input->root->user_id . " at "
             .date("Y-m-d H:i:s").". Txn. ID: BT-".date("YmdHis-").$input->root->id ;
 
