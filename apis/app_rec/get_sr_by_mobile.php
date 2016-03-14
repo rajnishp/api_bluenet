@@ -22,14 +22,15 @@ $sql = "SELECT sr.id, mobile,service,service_type,salary,user_cem_id,start_time,
     . "INNER JOIN `bluenet_v3`.timings AS t "
     . "WHERE sr.mobile = '" . $route[2]  ."' "
     . "AND sr.id = t.service_request_id";
+
 $result = mysqli_query($db_handle, $sql);
-echo $sql;
+//echo $sql;
 
-$details = mysqli_fetch_assoc($result);
 
+for($costsArr = array(); $cost = mysqli_fetch_assoc($result); $costsArr[] = $cost);
 
 echo "{\"root\":{\"srs\":";
-print json_encode($details);
+print json_encode($costsArr);
 echo "}}";
 
 ?>
