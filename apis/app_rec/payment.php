@@ -32,11 +32,11 @@ $sql = "UPDATE `bluenet_v3`.`service_request` SET `user_cem_id` = '" . $input->r
 $result = mysqli_query($db_handle, $sql);
 
 $message = "Dear ".$details['name'].", we have received payment of "
-            . $input->root->amount . " Rs for " . $input->root->sr_id . " by "
+            . $input->root->amount . " Rs for SR:" . $input->root->sr_id . " by "
             . $input->root->name
-            . "EMP_ID: BT-2015-"
+            . " EMP_ID: BT-15-"
             . $input->root->user_id . " at "
-            .date("Y-m-d H:i:s").". Txn. ID: BT-".date("YmdHis-").$input->root->id ;
+            .date("Y-m-d H:i:s").". Txn.ID: BT-".date("YmdHis-").$input->root->id ;
 
 sendSMS($details['mobile'], $message);
 sendSMS($input->root->mobile, $message);
