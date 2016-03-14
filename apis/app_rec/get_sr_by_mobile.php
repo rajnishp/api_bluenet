@@ -11,11 +11,12 @@ $input = json_decode(file_get_contents("php://input"));
 
 //$user_id = $_SESSION['user_id'];
 
-$result = mysqli_query($db_handle, "SELECT  *  FROM `bluenet_v3`.`service_request` as sr"
-    . "INNER JOIN `bluenet_v3`.timings AS t "
-    ." WHERE sr.mobile = '" . $route[2]  ."'"
-    . "AND sr.id = t.service_request_id "
-    . "; ");
+$sql = "SELECT  *  FROM `bluenet_v3`.`service_request` as sr"
+. "INNER JOIN `bluenet_v3`.timings AS t "
+." WHERE sr.mobile = '" . $route[2]  ."'"
+. "AND sr.id = t.service_request_id "
+. "; ";
+$result = mysqli_query($db_handle, $sql);
 
 $details = mysqli_fetch_assoc($result);
 
