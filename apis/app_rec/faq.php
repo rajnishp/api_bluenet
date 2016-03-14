@@ -7,7 +7,7 @@
  */
 ?>
 
-[{
+{"root": { "faqs":[{
 title: 'What is your recruitment/working process ?',
 text: 'First of all client/customer sent a request by phone, mobile App or through website with all requirements.' +
 
@@ -72,4 +72,4 @@ text: 'Maid can do floor brooming and wiping, dusting and all types of cleaning.
 }, {
 title: 'What cook can do ? or what type of food he/she can cook ?',
 text: 'Cook can cook North Indian, South Indian, Continental, Chinese and Italian . Salary is proposing to their skill set.'
-}]  
+}]  }}
