@@ -8,33 +8,19 @@
 ?>
 
 {"root": { "faqs":[{
-title: 'What is your recruitment/working process ?',
-text: 'First of all client/customer sent a request by phone, mobile App or through website with all requirements.' +
-
-'Then we search a person fulfilling client requirements according to given specifications in our database, if we found exact match profile we check worker’s availability and Client Engagement Manager (CEM) fix a meeting with client, if not found in our database our marketing executives (ME) search for required worker from field and CEM fixes meeting with client.' +
-
-'If meeting is successfully done, worker starts working from next day and customer have to pay 20% advance of our service charges with service tax .' +
-
-'If meeting is unsuccessful we search for another person and follow same process as above.' +
-
-'Worker remains in paid demo period for 3 days. After 3 days we take feedback from client and worker.' +
-
-'If worker or client is not satisfied we search for another person and follow same process as above but if client not satisfied and decline or cancel the request we give money back after deducting 3 days charges of worker.' +
-
-'If both are satisfied worker continue working  and customer pay remaining 80% of our charges with service tax.' +
-
-'In our contract for first six month we claim/guarantee that for our charge which is as much as worker’s one month salary plus service tax we provide worker for six month with replacement which are upto 3 times. If worker left job we will provide free replacement plus if worker took more than three holiday in a month we will provide replacement on that day .' +
-
-'In renewal process we give 50% discount for next six month and same facility as in contract.'
+"title": "What is your recruitment/working process ?",
+"text": "First of all client/customer sent a request by phone, mobile App or through website with all requirements.
+Then we search a person fulfilling client requirements according to given specifications in our database, if we found exact match profile we check worker’s availability and Client Engagement Manager (CEM) fix a meeting with client, if not found in our database our marketing executives (ME) search for required worker from field and CEM fixes meeting with client.If meeting is successfully done, worker starts working from next day and customer have to pay 20% advance of our service charges with service tax .
+If meeting is unsuccessful we search for another person and follow same process as above.Worker remains in paid demo period for 3 days. After 3 days we take feedback from client and worker.If worker or client is not satisfied we search for another person and follow same process as above but if client not satisfied and decline or cancel the request we give money back after deducting 3 days charges of worker.If both are satisfied worker continue working  and customer pay remaining 80% of our charges with service tax.In our contract for first six month we claim/guarantee that for our charge which is as much as worker’s one month salary plus service tax we provide worker for six month with replacement which are upto 3 times. If worker left job we will provide free replacement plus if worker took more than three holiday in a month we will provide replacement on that day .
+In renewal process we give 50% discount for next six month and same facility as in contract."
 }, {
-title: 'What type of services you provide ?',
-text: 'We provide Monthly and On demand services of Maid/Cook/Driver/BabySitter/Caretaker/Electrician/Plumber/Carpenter.'
+"title": "What type of services you provide ?",
+"text": "We provide Monthly and On demand services of Maid/Cook/Driver/BabySitter/Caretaker/Electrician/Plumber/Carpenter."
 }, {
-title: 'What are your charges  ? or what is your contract charges ?',
-text: 'We charge as much as worker’s one month salary as our service charge for six month plus service tax and if worker left job we will provide free replacement plus if worker took more than three holiday in a month we will provide replacement on that day .' +
-'For renewal process we discount 50% for another six month.'
+"title": "What are your charges  ? or what is your contract charges ?",
+"text": "We charge as much as worker’s one month salary as our service charge for six month plus service tax and if worker left job we will provide free replacement plus if worker took more than three holiday in a month we will provide replacement on that day .For renewal process we discount 50% for another six month."
 }, {
-title: 'Does worker are verified / skilled ?',
+"title": "Does worker are verified / skilled ?",
 text: 'Yes, they are verified both personally and by police. They are skilled and know about the responsibilities of their job. (Specify their job responsibilities)'
 }, {
 title: 'Tell about your company ?',
