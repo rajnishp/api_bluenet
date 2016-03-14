@@ -131,6 +131,10 @@ switch ($page) {
         require_once "app_rec/bills.php";
         break;
 
+    case "payment":
+        require_once "app_rec/payment.php";
+        break;
+
     case "account":
         require_once "app_rec/account.php";
         break;
