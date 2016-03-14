@@ -5,6 +5,7 @@
  * Date: 3/14/16
  * Time: 11:09 AM
  */
+$input = json_decode(file_get_contents("php://input"));
 
 $sql = "INSERT INTO `bluenet_v3`.`payments`
                       (`id`, `service_request_id`, `amount`, `user_cem_id`, `device_id`, `gps_location`, `user_id`, `check_no`)
@@ -23,7 +24,7 @@ $input->root->id = mysqli_insert_id($db_handle);
 print json_encode($input);
 
 $result = mysqli_query($db_handle, "SELECT  `name` , `mobile` , `email` , `type` , `address` , `area` ," .
-    " `creation` ,  `gps_location` , `device_id`  FROM `bluenet_v3`.`users` WHERE id = '" . $input->root->customer_id . "'; ");
+    " `creation` ,  `gps_location` , `device_id`  FROM `bluenet_v3`.`users` WHERE id = " . $input->root->customer_id . "; ");
 
 $details = mysqli_fetch_assoc($result);
 
