@@ -26,7 +26,7 @@ $sql = "SELECT sr.id, mobile,service,service_type,salary,user_cem_id,start_time,
     . "AND sr.user_cem_id = u.id";
 
 $result = mysqli_query($db_handle, $sql);
-//echo $sql;
+echo $sql;
 
 
 for($costsArr = array(); $cost = mysqli_fetch_assoc($result); $costsArr[] = $cost);
