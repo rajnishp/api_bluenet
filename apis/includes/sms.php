@@ -30,6 +30,24 @@ function sendSMS($to, $message){
     return httpGet($url);
 }
 
+function sendProSMS($to, $message){
+    $username = "rajnish90";
+    $password = "redhat123";
+    $senderid = "BLUETM";
+
+    $url = "http://www.smsjust.com/blank/sms/user/urlsms.php?".
+        "username=".$username.
+        "&pass=".$password.
+        "&senderid=".$senderid.
+        "&dest_mobileno=".$to.
+        "&msgtype=TXT".
+        "&message=".urlencode($message).
+        "&response=Y"
+    ;
+    //echo $url;
+    return httpGet($url);
+}
+
 function httpGet($url){
     $ch = curl_init();
 

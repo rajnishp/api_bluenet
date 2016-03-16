@@ -66,7 +66,7 @@ foreach ($emailIds as $to)
  * */
 $sql = "INSERT INTO `bluenet_v3`.`service_request`
 				(`id`, `user_id`, `mobile`, `service`, `service_type`, `salary`, `remarks`, `worker_gender`,
-					`user_cem_id`, `creation`,  `gps_location`, `device_id`, `address`, `priority`)
+					`user_cem_id`, `creation`,  `gps_location`, `device_id`, `address`, `priority`, `startingDateTime`)
 				VALUES
 				(NULL, '".	$input->root->user_id."',
 						'".	$input->root->mobile."',
@@ -80,7 +80,8 @@ $sql = "INSERT INTO `bluenet_v3`.`service_request`
 						'".	$input->root->location."',
 						'".	$input->root->device_id."',
 						'".	$input->root->address."',
-						'".	$input->root->priority."');";
+						'".	$input->root->priority."',
+						'".	date('Y-m-d H:i:s', strtotime($input->root->start_datatime))."');";
 
 $service_request = mysqli_query($db_handle, $sql);
 
