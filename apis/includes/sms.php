@@ -14,7 +14,7 @@ sendSMS("9599075955", "test sms")
 
 function sendSMS($to, $message){
     $username = "rajnish90";
-    $password = "redhat12345";
+    $password = "redhat123";
     $senderid = "BLUETM";
 
     $url = "http://www.smsjust.com/blank/sms/user/urlsms.php?".
