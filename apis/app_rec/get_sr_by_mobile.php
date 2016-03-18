@@ -38,7 +38,7 @@ $sql = "SELECT sr.id, service,service_type,salary,start_time,end_time,"
     . "AND sr.user_cem_id = r.user_id ";
 
 $result = mysqli_query($db_handle, $sql);
-//echo $sql;
+echo $sql;
 
 
 for($costsArr = array(); $cost = mysqli_fetch_assoc($result); $costsArr[] = $cost);
