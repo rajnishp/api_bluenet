@@ -27,12 +27,12 @@ $sql = "SELECT sr.id, service,service_type,salary,start_time,end_time, "
 
     . "LEFT JOIN `bluenet_v3`.ratings AS r ON sr.user_cem_id = r.user_id "
     . "LEFT JOIN `bluenet_v3`.ratings AS wr ON wcm.user_worker_id = wr.user_id AND sr.user_id = wr.customer_user_id "
-    . "LEFT JOIN `bluenet_v3`.users AS u sr.user_cem_id = u.id "
+    . "LEFT JOIN `bluenet_v3`.users AS u ON sr.user_cem_id = u.id "
 
     . "WHERE sr.mobile = '" . $route[2]  ."' ";
 
 $result = mysqli_query($db_handle, $sql);
-echo $sql;
+//echo $sql;
 
 
 for($costsArr = array(); $cost = mysqli_fetch_assoc($result); $costsArr[] = $cost);
