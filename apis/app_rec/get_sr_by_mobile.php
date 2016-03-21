@@ -25,7 +25,7 @@ $sql = "SELECT sr.id, service,service_type,salary,start_time,end_time, "
     . "LEFT JOIN `bluenet_v3`.users AS uw ON wcm.user_worker_id = uw.id  "
     . "LEFT JOIN `bluenet_v3`.timings AS t  ON sr.id = t.service_request_id "
 
-    . "LEFT JOIN `bluenet_v3`.ratings AS r ON sr.user_cem_id = r.user_id "
+    . "LEFT JOIN `bluenet_v3`.ratings AS r ON sr.user_cem_id = r.user_id AND sr.user_id = r.customer_user_id  "
     . "LEFT JOIN `bluenet_v3`.ratings AS wr ON wcm.user_worker_id = wr.user_id AND sr.user_id = wr.customer_user_id "
     . "LEFT JOIN `bluenet_v3`.users AS u ON sr.user_cem_id = u.id "
 
