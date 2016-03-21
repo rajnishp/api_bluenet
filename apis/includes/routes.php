@@ -139,6 +139,10 @@ switch ($page) {
         require_once "app_rec/account.php";
         break;
 
+    case "ratings":
+        require_once "app_rec/updateRating.php";
+        break;
+
     default:
         internalServerError("Error description: " . json_encode($_SERVER));
         die();
