@@ -44,7 +44,7 @@ echo "query: " . $sql . "\n";
 $service_request = mysqli_query($db_handle, $sql);
 
 
-$emailIds = array("rahul_lahoria@yahoo.com", "pwnpnwr785@gmail.com", "vikas.niper2012@gmail.com", "kumar.anil8892@yahoo.com");
+$emailIds = array("rahul_lahoria@yahoo.com", "pwnpnwr785@gmail.com", "vikas.niper2012@gmail.com", "kumar.anil8892@yahoo.com","neelamdubey1988@gmail.com");
 foreach ($emailIds as $to)
 	sendMail($to, "mobile app service requiest", json_encode($input));
 

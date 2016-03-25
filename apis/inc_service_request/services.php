@@ -5,7 +5,7 @@
 
 	//$user_id = $_SESSION['user_id'];
 	
-	$services = mysqli_query($db_handle, "SELECT * FROM `bluenet_v0`.`services` WHERE 1 ORDER BY `services`.`priority` ASC ; ") ;
+	$services = mysqli_query($db_handle, "SELECT * FROM `bluenet_v0`.`services` WHERE status = 1 ORDER BY `services`.`priority` ASC ; ") ;
 
 	for($servicesArr = array(); $service = mysqli_fetch_assoc($services); $servicesArr[] = $service);
 
