@@ -14,6 +14,14 @@ function internalServerError($error)
         sendMail($to, "Alert! error occurred in apis", $error);
 }
 
+function apiTakingMoreTime($error,$time)
+{
+
+    $emailIds = array("rahul_lahoria@yahoo.com", "pwnpnwr785@gmail.com", "vikas.niper2012@gmail.com", "kumar.anil8892@yahoo.com");
+    foreach ($emailIds as $to)
+        sendMail($to, "Alert! Api Took ".$time, $error);
+}
+
 function sendMail($to, $subject, $message)
 {
 
