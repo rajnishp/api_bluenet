@@ -58,7 +58,7 @@ $input->root->max = $max;
 $input->root->min = $min;
 $input->root->avg = $avg;
 $input->root->discount = $discount;
-
+$input->root->days = $days;
 $input->root->forDays = $forDays;
 
 print json_encode($input);
