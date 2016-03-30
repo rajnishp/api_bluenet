@@ -21,7 +21,7 @@
 
 		$services = mysqli_query($db_handle, "SELECT DISTINCT `service` FROM `bluenet_v3`.`plans` WHERE service_type = 'monthly';");
 
-		for ($servicesArr = array(); $service = mysqli_fetch_assoc($services); $servicesArr[] = $service) ;
+		for ($servicesArr = array(); $service = mysqli_fetch_assoc($services); $servicesArr[] = $service["service"]) ;
 
 		echo "{\"root\":";
 		print (json_encode($servicesArr));
