@@ -54,10 +54,10 @@ for($i = 1;$i < $input->root->hours;$i++) {
                     $forDays = ($forDays>$max)?$max:$forDays;
                     $avg = ($max + $min)/2;
 
-$input->root->$max = $max;
-$input->root->$min = $min;
-$input->root->$avg = $avg;
-$input->root->$discount = $discount;
+$input->root->max = $max;
+$input->root->min = $min;
+$input->root->avg = $avg;
+$input->root->discount = $discount;
 
 $input->root->$forDays0 = $forDays;
 
