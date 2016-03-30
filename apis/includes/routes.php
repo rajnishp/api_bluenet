@@ -111,6 +111,10 @@ switch ($page) {
         require_once "app_rec/pricings.php";
         break;
 
+    case "cal-price":
+        require_once "app_rec/calPrice.php";
+        break;
+
     case "verification_process":
         require_once "app_rec/verification_process.php";
         break;
