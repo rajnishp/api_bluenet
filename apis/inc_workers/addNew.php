@@ -114,7 +114,7 @@ $password = generateRandomString();
 					VALUES (NULL,
 					'" . $input->root->id . "',
 					 '" . $timing->start_time . "',
-					 '" . $timing->stop_time . "',
+					 '" . $timing->end_time . "',
 					 '" . date("Y-m-d H:i:s") . "',
 					 '1',
 					 '" . $input->root->gps_location . "',
@@ -125,6 +125,24 @@ $password = generateRandomString();
 
 
 	}
+/*
+ *
+ * INSERT INTO `bluenet_v3`.`service_worker_mappings`
+ * 	(`id`, `worker_id`, `service_id`, `creation`) VALUES ('', '1', '2', CURRENT_TIMESTAMP);
+ * */
+
+foreach($input->root->services as $service){
+	$sql = "INSERT INTO `bluenet_v3`.`service_worker_mappings`
+				(`id`, `worker_id`, `service_id`)
+					VALUES ('',
+					'" . $input->root->id . "',
+					 '" . $service . "'
+					 );";
+
+	$result = mysqli_query($db_handle, $sql);
+
+
+}
 
 print json_encode($input);
 
