@@ -78,6 +78,10 @@ $password = generateRandomString();
 	$result = mysqli_query($db_handle, $sql);
 
 	$input->root->user_id = mysqli_insert_id($db_handle);
+if(!isset($input->root->user_id) || $input->root->user_id == 0 ){
+	internalServerError("Error description: " . json_encode($_SERVER));
+	die();
+}
 
 	/*INSERT INTO `bluenet_v3`.`workers` (`id`, `ref_id`, `user_id`, `status`, `emergency_no`, `native_place`, `native_add`, `dob`, `education`, `experience`, `gender`, `remark`, `salary`, `bonus`) VALUES
 	(NULL, '1', '3', 'new', '9090909090', 'delhi', 'asdf', '2016-04-05', '10', '5', 'M', 'afsdv', '1000', '2');*/
