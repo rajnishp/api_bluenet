@@ -18,15 +18,16 @@ $input = json_decode(file_get_contents("php://input"));
 
 //$user_id = $_SESSION['user_id'];
 
-$sql = "select id,name,sum(score)/(2160*13) as t from (SELECT u.id , u.name , timediff( t.end_time, t.start_time ) AS score
-FROM `bluenet_v3`.`users` AS u
-INNER JOIN `bluenet_v3`.workers AS w
-INNER JOIN `bluenet_v3`.worker_working_timings AS t
+$sql = "select id,name,sum(timed)/(2160*13) as score from (SELECT u.id , u.name , timediff( t.end_time, t.start_time ) AS timed
+FROM `users` AS u
+INNER JOIN workers AS w
+INNER JOIN worker_working_timings AS t
 WHERE u.type != 'customer'
 AND u.id = w.ref_id
 AND w.id = t.worker_id
 ) as a where 1
-group by id";
+group by id
+ORDER BY `score`  DESC";
 //echo $sql;
 $result = mysqli_query($db_handle,
     $sql);
