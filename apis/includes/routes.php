@@ -83,7 +83,7 @@ switch ($page) {
                 break;
 
             default:
-                echo "Wrong Way, Contact: dev@blueteam.in";
+                require_once "inc_workers/worker.php";
                 break;
         }
 
