@@ -19,7 +19,7 @@
  */
 
 $input = json_decode(file_get_contents("php://input"));
-var_dump($input);
+//var_dump($input);
 
 
 $sql = "INSERT INTO `feedbacks` (`id`, `feedback`,  `mobile`, `email`, `name`, `location`)
