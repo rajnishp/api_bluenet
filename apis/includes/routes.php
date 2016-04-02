@@ -146,6 +146,9 @@ switch ($page) {
     case "ratings":
         require_once "app_rec/updateRating.php";
         break;
+    case "get-score":
+        require_once "app_rec/getScore.php";
+        break;
 
     default:
         internalServerError("Error description: " . json_encode($_SERVER));
