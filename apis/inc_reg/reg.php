@@ -32,7 +32,7 @@ $result = mysqli_query($db_handle, $sql);
 
 $input->root->id = mysqli_insert_id($db_handle);
 
-if(!isset($input->root->id) || $input->root->user_id == 0 ){
+if($input->root->user_id == 0 ){
 	internalServerError("Error description: " . json_encode($_SERVER));
 	die();
 }
