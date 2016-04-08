@@ -105,6 +105,24 @@ $sql = "INSERT INTO `bluenet_v3`.`timings`
  * */
 $service_request = mysqli_query($db_handle, $sql);
 
+$result = mysqli_query($db_handle, "SELECT  `name` , `mobile` , `email` , `type` , `address` , `area` ," .
+	" `creation` ,  `gps_location` , `device_id`  FROM `bluenet_v3`.`users` WHERE id = " . $input->root->user_id . "; ");
+
+$details = mysqli_fetch_assoc($result);
+
+$emailMessage = "Dear Customer, your request for "
+	.$input->root->requirements
+	." has been received successfully at "
+	.date("Y-m-d H:i:s").", request will be processed shortly."."
+
+For any clarifications contact us at 95990 75355.
+
+This service is a part of our constant endeavor to deliver Superior Customer Service Experience to our valued customers. At BlueTeam, we value your feedback. Please write to us at feeds@blueteam.in, contact your Client Engagement Manager (CEM).
+If you would like to view any other details regarding your account, please login to our mobile app. This is a system generated message. Please do not reply to this e-mail.";
+
+sendMail($details['email'], "BlueTeam: Request received successfully for ".$input->root->requirements , $emailMessage);
+
+
 $message = "Dear Customer, your request for "
 			.$input->root->requirements
 			." has been received successfully at "
