@@ -124,7 +124,7 @@ sendMail($details['email'], "BlueTeam: Request received successfully for ".$inpu
 
 
 $message = "Dear Customer, your request for "
-			.$input->root->requirements
+			.$input->root->requirements ."( SR_ID:".$input->root->sr_id.")"
 			." has been received successfully at "
 			.date("Y-m-d H:i:s").", request will be processed shortly.";
 sendSMS($input->root->mobile, $message);
