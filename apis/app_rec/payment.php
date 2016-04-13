@@ -31,15 +31,15 @@ $details = mysqli_fetch_assoc($result);
 $sql = "UPDATE `bluenet_v3`.`service_request` SET `user_cem_id` = '" . $input->root->user_id  . "' WHERE `service_request`.`id` = " . $input->root->sr_id . ";";
 $result = mysqli_query($db_handle, $sql);
 
-$emailMessage = "Dear Customer,\r\n"
+$emailMessage = "Dear Customer,<br/>"
 ." we have received payment of "
             . $input->root->amount . " Rs for SR:" . $input->root->sr_id . " by "
             . $input->root->name
             . " EMP_ID: BT-15-"
             . $input->root->user_id . " at "
-            .date("Y-m-d H:i:s").". Txn.ID: BT-".date("YmdHis-").$input->root->id."\r\n\r\n\r\n
+            .date("Y-m-d H:i:s").". Txn.ID: BT-".date("YmdHis-").$input->root->id."<br/><br/><br/>
 
-For any clarifications contact us at 95990 75355.\r\n
+For any clarifications contact us at 95990 75355.<br/>
 
 This service is a part of our constant endeavor to deliver Superior Customer Service Experience to our valued customers. At BlueTeam, we value your feedback. Please write to us at feeds@blueteam.in, contact your Client Engagement Manager (CEM).
 If you would like to view any other details regarding your account, please login to our mobile app. This is a system generated message. Please do not reply to this e-mail.";
