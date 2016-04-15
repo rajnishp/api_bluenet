@@ -33,7 +33,7 @@ $sql = "SELECT sr.id, sr.address, sr.remarks, service,service_type,salary,start_
     . "WHERE sr.user_cem_id = '" . $route[2]  ."' AND sr.status =  '" . $_GET['status']  ."'"  ;
 
 $result = mysqli_query($db_handle, $sql);
-echo $sql;
+//echo $sql;
 
 
 for($costsArr = array(); $cost = mysqli_fetch_assoc($result); $costsArr[] = $cost);
