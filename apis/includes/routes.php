@@ -131,6 +131,10 @@ switch ($page) {
         require_once "app_rec/get_sr_by_mobile.php";
         break;
 
+    case "cem_mysr":
+        require_once "app_rec/get_sr_by_cem_id.php";
+        break;
+
     case "bills":
         require_once "app_rec/bills.php";
         break;
