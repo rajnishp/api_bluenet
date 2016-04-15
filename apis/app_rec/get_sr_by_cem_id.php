@@ -18,8 +18,8 @@ $input = json_decode(file_get_contents("php://input"));
 . "; ";*/
 
 
-$sql = "SELECT sr.id, sr.address, sr.remarks, service,service_type,salary,start_time,end_time, "
-    ." u.id as cem_id, r.rating as cem_rating,  "
+$sql = "SELECT sr.id, u.name, sr.mobile, sr.address, sr.remarks, service,service_type,salary,start_time,end_time, "
+    ." r.rating as cem_rating,  "
     ." uw.id as worker_id, uw.name as worker_name, uw.mobile as worker_mobile, wr.rating as worker_rating  "
     . "FROM `bluenet_v3`.`service_request` AS sr "
     . "LEFT JOIN `bluenet_v3`.worker_customer_match AS wcm ON sr.id = wcm.service_request_id AND wcm.type != 'leave' "
@@ -28,7 +28,7 @@ $sql = "SELECT sr.id, sr.address, sr.remarks, service,service_type,salary,start_
 
     . "LEFT JOIN `bluenet_v3`.ratings AS r ON sr.user_cem_id = r.user_id AND sr.user_id = r.customer_user_id  "
     . "LEFT JOIN `bluenet_v3`.ratings AS wr ON wcm.user_worker_id = wr.user_id AND sr.user_id = wr.customer_user_id "
-    . "LEFT JOIN `bluenet_v3`.users AS u ON sr.user_cem_id = u.id "
+    . "LEFT JOIN `bluenet_v3`.users AS u ON sr.user_id = u.id "
 
     . "WHERE sr.user_cem_id = '" . $route[2]  ."' AND sr.status =  '" . $_GET['status']  ."'"  ;
 
