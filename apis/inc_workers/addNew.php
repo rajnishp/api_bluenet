@@ -79,7 +79,9 @@ $password = generateRandomString();
 
 	$input->root->user_id = mysqli_insert_id($db_handle);
 if($input->root->user_id == 0 ){
-	internalServerError("Error description: " . json_encode($_SERVER));
+	echo "{\"root\":{\"user\":\"\"";
+
+	echo "}}";
 	die();
 }
 
