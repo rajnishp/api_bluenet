@@ -45,7 +45,7 @@ if($input->root->user_worker_id) {
 
 
 
-//echo "query: " . $sql . "\n";
+echo "query: " . $sql . "\n";
 $service_request = mysqli_query($db_handle, $sql);
 
 //mysqli_insert_id($con)
