@@ -63,7 +63,10 @@ switch ($page) {
 
     case "service_request":
         if ($method == "POST") {
-            require_once "inc_service_request/post.php";
+            if(isset($route[2]))
+                require_once "inc_service_request/put.php";
+            else
+                require_once "inc_service_request/post.php";
         } else if ($method == "PUT") {
             require_once "inc_service_request/put.php";
         } else
