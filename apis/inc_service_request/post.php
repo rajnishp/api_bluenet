@@ -75,7 +75,7 @@ $sql = "INSERT INTO `bluenet_v3`.`service_request`
 						'',
 						'".	$input->root->remarks."',
 						'',
-						'10',
+						'',
 						'".date("Y-m-d H:i:s")."',
 						'".	$input->root->location."',
 						'".	$input->root->device_id."',
@@ -128,82 +128,6 @@ $message = "Dear Customer, your request for "
 			." has been received successfully at "
 			.date("Y-m-d H:i:s").", request will be processed shortly.";
 sendSMS($input->root->mobile, $message);
-/*
-	$sql = "SELECT * FROM `area`;";
-	$area_array = mysqli_query ($db_handle, $sql);
-
-
-		if (mysqli_num_rows($area) !=0 ) {
-			//$area->name == $input->root->area
-			foreach ($area_array as $key => $area) {
-				$area_id = $area -> id;
-				$sql = "INSERT INTO sr_area (`id`, `sr_id`)
-					VALUES ('".$area_id."',
-						'". $new_sr_id."');";
-
-				//id: area_id, sr_id: service_request_id
-
-				$sr_area = mysqli_query ($db_handle, $sql);
-				if(mysqli_connect_errno()){
-					// send 500 html header internalServerError("Error description: " . mysqli_error($db_handle)); echo("Error description: " . mysqli_error($db_handle));die();
-				}
-			}
-		}
-		else {
-			$sql = "INSERT INTO area (`id`, `name`)
-			VALUES (NULL,
-				'". $input->root->area."');";
-
-			$area = mysqli_query ($db_handle, $sql);
-			if(mysqli_connect_errno()){
-				// send 500 html header internalServerError("Error description: " . mysqli_error($db_handle)); echo("Error description: " . mysqli_error($db_handle));die();
-			}
-
-
-			$sql = "INSERT INTO sr_area (`id`, `sr_id`)
-				VALUES (NULL,
-					'". $new_sr_id."');";
-
-			//id: area_id, sr_id: service_request_id
-
-			$sr_area = mysqli_query ($db_handle, $sql);
-			if(mysqli_connect_errno()){
-				// send 500 html header internalServerError("Error description: " . mysqli_error($db_handle)); echo("Error description: " . mysqli_error($db_handle));die();
-			}
-		}
-
-
-
-
-
-
-	$sql = "INSERT INTO skill_name (`id`, `name`)
-				VALUES (NULL,
-					'". $input->root->name."');";
-
-	//id: skill_id, name: skill_name
-
-	$skill_name = mysqli_query ($db_handle, $sql);
-	if(mysqli_connect_errno()){
-		/// send 500 html header internalServerError("Error description: " . mysqli_error($db_handle)); echo("Error description: " . mysqli_error($db_handle));die();
-	}
-
-
-	$sql = "INSERT INTO skills (`id`, `user_id`, `skill_id`, `creation_date`, `status`, `type`, `employee_id`)
-				VALUES (NULL,
-					'". $input->root->user_id."',
-					'". $input->root->skill_id."',
-					'". $input->root->created_date."',
-					'". $input->root->status."',
-					'". $input->root->type."',
-					'". $input->root->employee_id."');";
-
-	//
-
-	$skills = mysqli_query ($db_handle, $sql);
-	if(mysqli_connect_errno()){
-		// send 500 html header internalServerError("Error description: " . mysqli_error($db_handle)); echo("Error description: " . mysqli_error($db_handle));die();
-	}*/
 
 
 ?>
