@@ -29,7 +29,7 @@ $sql = "UPDATE `bluenet_v3`.`service_request`
                 SET ".$set."
                 WHERE `service_request`.`id` = " . $input->root->sr_id . ";";
 
-if($input->root->user_worker_id) {
+if($input->root->key == "user_worker_id") {
     $sql = "INSERT INTO
                 `bluenet_v3`.`worker_customer_match`
                   (`id`, `user_worker_id`, `service_request_id`, `type`, `creation`)
@@ -45,7 +45,7 @@ if($input->root->user_worker_id) {
 
 
 
-echo "query: " . $sql . "\n";
+//echo "query: " . $sql . "\n";
 $service_request = mysqli_query($db_handle, $sql);
 
 //mysqli_insert_id($con)
