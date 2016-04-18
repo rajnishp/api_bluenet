@@ -35,7 +35,7 @@ if($input->root->key == "user_worker_id") {
                   (`id`, `user_worker_id`, `service_request_id`, `type`, `creation`)
                   VALUES
                   (NULL,
-                  '".$input->root->user_worker_id."',
+                  '".$input->root->value."',
                   '" . $input->root->sr_id . "',
                   'parmanent',
                   '".date("Y-m-d H:i:s")."'
