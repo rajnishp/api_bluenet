@@ -22,7 +22,7 @@ $input = json_decode(file_get_contents("php://input"));
 if($input->root->key == "status")
   $set = "`status` = '" . $input->root->value . "'";
 
-if($input->root->new_cem_id == "new_cem_id")
+if($input->root->key == "new_cem_id")
     $set = "`user_cem_id` = '" . $input->root->value . "'";
 
 $sql = "UPDATE `bluenet_v3`.`service_request`
