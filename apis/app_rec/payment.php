@@ -28,6 +28,10 @@ $result = mysqli_query($db_handle, "SELECT  `name` , `mobile` , `email` , `type`
 
 $details = mysqli_fetch_assoc($result);
 
+$result = mysqli_query($db_handle, "SELECT  *  FROM `bluenet_v3`.`service_request` WHERE id = " . $input->root->sr_id . "; ");
+
+$srDetails = mysqli_fetch_assoc($result);
+
 $sql = "UPDATE `bluenet_v3`.`service_request` SET `user_cem_id` = '" . $input->root->user_id  . "' WHERE `service_request`.`id` = " . $input->root->sr_id . ";";
 $result = mysqli_query($db_handle, $sql);
 
@@ -51,7 +55,11 @@ $message = "Dear ".$details['name'].", we have received payment of "
             . " EMP_ID: BT-15-"
             . $input->root->user_id . " at "
             .date("Y-m-d H:i:s").". Txn.ID: BT-".date("YmdHis-").$input->root->id ;
+if($details['mobile'] != null && $details['type'] == "customer")
+    sendSMS($details['mobile'], $message);
 
-sendSMS($details['mobile'], $message);
+if($details['mobile'] != $srDetails['mobile'])
+    sendSMS($srDetails['mobile'], $message);
+
 sendSMS($input->root->mobile, $message);
 
