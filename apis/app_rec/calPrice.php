@@ -59,6 +59,12 @@ $input->root->max = $max;
 $input->root->min = $min;
 $input->root->avg = $avg;
 $input->root->discount = $discount;
+
+$input->root->reliablityMax = $max+($max*0.2);
+$input->root->reliablityMin = $min+($min*0.2);
+$input->root->reliablityAvg = $avg+($avg*0.2);
+$input->root->reliablityDiscount = $discount+($discount*0.2);
+
 $input->root->days = $days;
 $input->root->forDays = $forDays;
 
