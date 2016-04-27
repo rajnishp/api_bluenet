@@ -68,6 +68,8 @@ $input->root->reliability_discount = $discount+($discount*0.15);
 $input->root->days = $days;
 $input->root->forDays = $forDays;
 
+$input->root->reliability_forDays = $forDays +($forDays*0.15);
+
 print json_encode($input);
 
 ?>
