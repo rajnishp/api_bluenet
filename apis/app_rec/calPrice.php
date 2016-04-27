@@ -60,10 +60,10 @@ $input->root->min = $min;
 $input->root->avg = $avg;
 $input->root->discount = $discount;
 
-$input->root->reliablityMax = $max+($max*0.2);
-$input->root->reliablityMin = $min+($min*0.2);
-$input->root->reliablityAvg = $avg+($avg*0.2);
-$input->root->reliablityDiscount = $discount+($discount*0.2);
+$input->root->reliabilityMax = $max+($max*0.15);
+$input->root->reliabilityMin = $min+($min*0.15);
+$input->root->reliabilityAvg = $avg+($avg*0.15);
+$input->root->reliabilityDiscount = $discount+($discount*0.15);
 
 $input->root->days = $days;
 $input->root->forDays = $forDays;
