@@ -55,6 +55,21 @@ for($i = 1;$i < $input->root->hours;$i++) {
                     $forDays = ($forDays>$max)?$max:$forDays;
                     $avg = ($max + $min)/2;
 
+
+$sql = "SELECT  `price`
+                  FROM `bluenet_v3`.`direct_hr_based_pricings`
+                  WHERE service = '" . $route[2] . "'
+                        AND hours = '".$input->root->hours."'; ";
+//echo $sql;
+$result = mysqli_query($db_handle,
+    $sql);
+$count = mysqli_num_rows($result);
+
+if($count == 1) {
+    $details = mysqli_fetch_assoc($result);
+    $max = $details['price'];
+
+}
 $input->root->max = $max;
 $input->root->min = $min;
 $input->root->avg = $avg;
