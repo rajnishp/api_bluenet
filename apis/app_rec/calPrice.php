@@ -51,9 +51,6 @@ for($i = 1;$i < $input->root->hours;$i++) {
 
 }
 
-                    $discount = ($forDays>$max)?$forDays:false ;
-                    $forDays = ($forDays>$max)?$max:$forDays;
-                    $avg = ($max + $min)/2;
 
 
 $sql = "SELECT  `price`
@@ -70,6 +67,11 @@ if($count == 1) {
     $max = $details['price'];
 
 }
+
+$discount = ($forDays>$max)?$forDays:false ;
+$forDays = ($forDays>$max)?$max:$forDays;
+$avg = ($max + $min)/2;
+
 $input->root->max = $max;
 $input->root->min = $min;
 $input->root->avg = $avg;
