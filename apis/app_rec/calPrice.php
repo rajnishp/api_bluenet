@@ -65,10 +65,12 @@ $count = mysqli_num_rows($result);
 if($count == 1) {
     $details = mysqli_fetch_assoc($result);
     $max1 = $details['price'];
-    if($days <= 25)
+
+    if($days <= 26)
         $max = ($max>$max1)?$max1:$max;
     else
         $max = $max1;
+
 
 }
 
