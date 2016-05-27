@@ -66,11 +66,22 @@ if($count == 1) {
     $details = mysqli_fetch_assoc($result);
     $max1 = $details['price'];
 
+    $max = $max1;
+    $forDays = $max/26*$days;
+
+    if($days <= 26 && $days >= 21) {
+        $max = $max / 26 * $days;
+        $min = $max / 21 * $days;
+    }
+
+
+
+    /*
     if($days <= 26)
         $max = ($max>$max1)?$max1:$max;
     else
         $max = $max1;
-
+    */
 
 }
 
