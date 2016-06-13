@@ -13,6 +13,7 @@ $header = json_encode($_SERVER);
 $url = $_SERVER[REQUEST_URI];
 $timeTaken = time()-$scriptStartTime;
 $os = getOS();
+$ip = $_SERVER[REMOTE_ADDR];
 
 $sql = "INSERT INTO `request_logs`.`raw_logs` (id, input, header, url,time_taken,ip,os)
 				VALUES (NULL,

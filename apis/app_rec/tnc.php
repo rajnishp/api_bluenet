@@ -20,9 +20,9 @@
     "In the event of any inconsistency between the provisions under the Terms of Use and the BlueTeam.in Privacy Statement, the provisions under the Terms of Use will prevail." 
     ],
 "TERMS":[
-    "1) BlueTeam.in charges a fees for it’s placement services which is equivalent to the salary payable to the placed individual for his/her services for a period of one month. Taxes as may be applicable shall be payable separately by the user.",
-    "2) The placed individual may be replaced by another individual of the user's choice after a minimum of 6 months with a maximum of 3 such replacements in a period of 6 months.",
-    "3) A Renewal fees shall be payable after first six months, and the quantum shall be equivalent to  50% of the placed individual's salary for period of next 6 months.",
+    "1) BlueTeam.in don\'t charges service change or commission, monthly cost of consuming BlueTeam Services should be paid in advance.",
+    "2) In a particular month Customer have to pay salary/charges of the domestic helper (the word \“Domestic Helper\” refer to cook, maid, driver, babysitter, patient care, elderly care) at least minimum of 21 days and maximum of 26 days according to charges applicable.",
+    "3) If the Customer want to take only 15 days service in a month, then minimum of 21 days charges would have to pay to the company. If Customer want to take the service less than 15 days, in that case BlueTeam On demand charges would be applicable.",
     "4) The client undertakes to notify BlueTeam.in immediately upon agreeing to hire a candidate introduced by BlueTeam.in",
     "5) An invoice will be sent to the client upon commencement of employment and the placement fee is payable immediately on the date of joining of the candidate",
     "6) Introductions are strictly confidential. If BlueTeam.in introduces a candidate that the client then introduces to a third part, who hires the candidate on either full time or part time, the client agrees to pay BlueTeam.in the placement charges and taxes as applicable.",
