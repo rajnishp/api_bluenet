@@ -18,7 +18,7 @@ $input = json_decode(file_get_contents("php://input"));
 . "; ";*/
 
 
-$sql = "SELECT sr.id, u.name, sr.mobile, sr.address, sr.remarks, sr.status, sr.creation, service,service_type,salary,start_time,end_time, "
+$sql = "SELECT sr.id, u.name, sr.user_id as c_user_id, sr.mobile, sr.address, sr.remarks, sr.status, sr.creation, service,service_type,salary,start_time,end_time, "
     ." r.rating as cem_rating,  "
     ." uw.id as worker_id, uw.name as worker_name, uw.mobile as worker_mobile, wr.rating as worker_rating  "
     . "FROM `bluenet_v3`.`service_request` AS sr "
