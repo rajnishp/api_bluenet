@@ -7,7 +7,7 @@
 
 	if(!isset($_GET['type'])) {
 
-		$services = mysqli_query($db_handle, "SELECT * FROM `bluenet_v0`.`services` WHERE status = 1 ORDER BY `services`.`priority` ASC ; ");
+		$services = mysqli_query($db_handle, "SELECT * FROM `bluenet_v3`.`services` WHERE status = 1 ORDER BY `services`.`priority` ASC ; ");
 
 		for ($servicesArr = array(); $service = mysqli_fetch_assoc($services); $servicesArr[] = $service) ;
 
