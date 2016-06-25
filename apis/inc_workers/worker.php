@@ -1,10 +1,11 @@
 <?php
 
 if(isset($_GET['user_id'])) {
-    $sql = "SELECT u.id as id, u.name, u.mobile, w.id as worker_id , w.emergency_no, ud.adhar_card, ud.voter_id, ud.driving_license,
-ud.pan_card
-FROM `bluenet_v3`.`workers` as w inner join `bluenet_v3`.users as u inner join `bluenet_v3`.user_documents as ud
-WHERE w.`ref_id` =" . $_GET['user_id'] . " and w.user_id = u.id and u.id = ud.user_id ";
+    $sql = "SELECT u.id AS id, u.name, u.mobile, w.id AS worker_id, w.emergency_no, ud.adhar_card, ud.voter_id, ud.driving_license, ud.pan_card
+FROM `bluenet_v3`.`workers` AS w
+LEFT JOIN `bluenet_v3`.users AS u ON w.user_id = u.id
+LEFT JOIN `bluenet_v3`.user_documents AS ud ON u.id = ud.user_id
+WHERE w.`ref_id` =". $_GET['user_id'];
 }
 
 if(isset($route[2]))
