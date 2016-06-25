@@ -61,7 +61,7 @@ $input = json_decode(file_get_contents("php://input"));
 
 $password = generateRandomString();
 	$sql = "INSERT INTO `bluenet_v3`.`users` ( `id` , `name` , `mobile` , `email` , `password` , `type` , `address` , `area` ," .
-		" `creation` ,  `gps_location` , `device_id` )
+		" `creation` ,  `gps_location` , `device_id`, `photo` )
 				VALUES (NULL ,
 				'" . $input->root->name . "',
 				'" . $input->root->mobile . "',
@@ -72,8 +72,10 @@ $password = generateRandomString();
 				'',
 				'" . date("Y-m-d H:i:s") . "',
 				'" . $input->root->gps_location . "',
-				'" . $input->root->device_id . "'
+				'" . $input->root->device_id . "',
+				'" . $input->root->photo . "'
 				);";
+
 
 	$result = mysqli_query($db_handle, $sql);
 
@@ -84,6 +86,18 @@ if($input->root->user_id == 0 ){
 	echo "}}";
 	die();
 }
+
+
+$sql = "INSERT INTO `bluenet_v3`.`user_documents` (`id`,  `user_id`, `adhar_card`, `voter_id`, `driving_license`, `pan_card`)
+				VALUES (NULL,
+					'" . $input->root->user_id . "',
+					 '" . $input->root->adhar_card . "',
+					  '" . $input->root->voter_card . "',
+					   '" . $input->root->driving_license . "',
+						'" . $input->root->pan_card . "');";
+
+$result = mysqli_query($db_handle, $sql);
+
 
 	/*INSERT INTO `bluenet_v3`.`workers` (`id`, `ref_id`, `user_id`, `status`, `emergency_no`, `native_place`, `native_add`, `dob`, `education`, `experience`, `gender`, `remark`, `salary`, `bonus`) VALUES
 	(NULL, '1', '3', 'new', '9090909090', 'delhi', 'asdf', '2016-04-05', '10', '5', 'M', 'afsdv', '1000', '2');*/
