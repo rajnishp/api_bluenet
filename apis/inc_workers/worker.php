@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_GET['user_id'])) {
-    $sql = "SELECT u.id AS id, u.name, u.mobile, w.id AS worker_id, w.emergency_no, ud.adhar_card, ud.voter_id, ud.driving_license, ud.pan_card
+    $sql = "SELECT u.id AS id, u.name, u.mobile, u.rating, w.id AS worker_id, w.emergency_no, ud.adhar_card, ud.voter_id, ud.driving_license, ud.pan_card
 FROM `bluenet_v3`.`workers` AS w
 LEFT JOIN `bluenet_v3`.users AS u ON w.user_id = u.id
 LEFT JOIN `bluenet_v3`.user_documents AS ud ON u.id = ud.user_id
