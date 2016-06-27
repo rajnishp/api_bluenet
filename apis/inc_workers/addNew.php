@@ -88,6 +88,8 @@ if($input->root->user_id == 0 ){
 }
 
 
+$result = mysqli_query($db_handle, "Update users set md5_id = MD5(".$input->root->user_id .") where id = ".$input->root->user_id );
+
 $sql = "INSERT INTO `bluenet_v3`.`user_documents` (`id`,  `user_id`, `adhar_card`, `voter_id`, `driving_license`, `pan_card`)
 				VALUES (NULL,
 					'" . $input->root->user_id . "',
