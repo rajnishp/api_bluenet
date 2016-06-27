@@ -32,6 +32,9 @@ $result = mysqli_query($db_handle, $sql);
 
 $input->root->id = mysqli_insert_id($db_handle);
 
+$result = mysqli_query($db_handle, "Update users set md5_id = MD5(".$input->root->id .") where id = ".$input->root->id );
+
+
 if ($input->root->id == 0) {
     internalServerError("Error description: " . json_encode($_SERVER));
     die();
