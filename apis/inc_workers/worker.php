@@ -18,9 +18,13 @@ if(isset($route[2]) && $route[2] == "society" && isset($_GET['society_id']) ){
 
     $sql = "SELECT u.id AS id, u.name, u.mobile, u.rating, u.photo, u.`address` , u.`area` , w.id AS worker_id, w.emergency_no,".
         " ud.adhar_card, ud.voter_id, ud.driving_license, ud.pan_card, w.`status`,w.`native_place`,w.`dob` ".
+        " lu.name as lord_name, lu.mobile as lord_mobile, lu.`address` as lord_address ".
         " FROM `bluenet_v3`.`society_worker_mapping` AS swm ".
         " LEFT JOIN `bluenet_v3`.`workers` AS w on swm.worker_id = w.id".
-        " LEFT JOIN `bluenet_v3`.users AS u ON w.user_id = u.id
+        " LEFT JOIN `bluenet_v3`.users AS u ON w.user_id = u.id ".
+        " LEFT JOIN `bluenet_v3`.users AS lu ON w.ref_id = lu.id".
+        "
+
 LEFT JOIN `bluenet_v3`.user_documents AS ud ON u.id = ud.user_id
 WHERE swm.`society_id` =". $_GET['society_id'];
 
