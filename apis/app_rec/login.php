@@ -18,7 +18,7 @@ $result = mysqli_query($db_handle, "SELECT  `id`,`name` , `mobile` , `email` , `
 $details = mysqli_fetch_assoc($result);
 if (mysqli_num_rows($result) >= 1) {
     $details['user_exist'] = true;
-
+    echo $route[2];
     if ($route[2] == "society"){
 
 
