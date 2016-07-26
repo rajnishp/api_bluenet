@@ -16,8 +16,28 @@ $result = mysqli_query($db_handle, "SELECT  `id`,`name` , `mobile` , `email` , `
       AND password = '" . $input->root->password . "'; ");
 
 $details = mysqli_fetch_assoc($result);
-if (mysqli_num_rows($result) >= 1)
+if (mysqli_num_rows($result) >= 1) {
     $details['user_exist'] = true;
+    if ($route[2] == "society"){
+
+        $result = mysqli_query($db_handle, "SELECT  * FROM societies WHERE id = ".$details['society_id']." ; ");
+        $societyD = mysqli_fetch_assoc($result);
+        $who = "";
+
+        if($societyD['president_user_id'] == $details['id'] ) $who = "president";
+        if($societyD['cashier_user_id'] == $details['id'] ) $who = "cashier";
+        if($societyD['secretary_user_id'] == $details['id'] ) $who = "secretary";
+        if($societyD['staff_user_id'] == $details['id'] ) $who = "staff";
+
+        if($who != ""){
+            $details['who'] = $who;
+            $details['society'] = $societyD;
+        }
+
+
+
+    }
+}
 else
     $details['user_exist'] = false;
 
