@@ -12,15 +12,15 @@ $input = json_decode(file_get_contents("php://input"));
 //$user_id = $_SESSION['user_id'];
 
 $result = mysqli_query($db_handle, "SELECT  `id`,`name` , `mobile` , `email` , `type` , `address` , `area` ," .
-    " `creation` ,  `gps_location` , `device_id`  FROM `bluenet_v3`.`users` WHERE mobile = '" . $input->root->mobile . "'
+    " `creation` ,  `gps_location` , `device_id`, `society_id`  FROM `bluenet_v3`.`users` WHERE mobile = '" . $input->root->mobile . "'
       AND password = '" . $input->root->password . "'; ");
 
 $details = mysqli_fetch_assoc($result);
 if (mysqli_num_rows($result) >= 1) {
     $details['user_exist'] = true;
-    print_r($route);
+
     if ($route[2] == "society"){
-        echo $details['society_id'];
+
 
         $result = mysqli_query($db_handle, "SELECT  * FROM societies WHERE id = ".$details['society_id']." ; ");
         $societyD = mysqli_fetch_assoc($result);
