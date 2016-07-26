@@ -21,9 +21,9 @@ if (mysqli_num_rows($result) >= 1) {
 
     if ($route[2] == "society"){
         $sql ="SELECT  * FROM societies WHERE id = ".$details['society_id']." ; ";
-        $result = mysqli_query($db_handle, $sql);
-        $societyD = mysqli_fetch_assoc($result);
-        echo $sql;
+        $r = mysqli_query($db_handle, $sql);
+        $societyD = mysqli_fetch_assoc($r);
+        print_r($societyD);
         $who = "";
 
         if($societyD['president_user_id'] == $details['id'] ) $who = "president";
