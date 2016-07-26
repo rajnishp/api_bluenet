@@ -20,10 +20,10 @@ if (mysqli_num_rows($result) >= 1) {
     $details['user_exist'] = true;
 
     if ($route[2] == "society"){
-        $sql ="SELECT  * FROM societies WHERE id = ".$details['society_id']." ; ";
+        $sql ="SELECT  * FROM `bluenet_v3`.societies WHERE id = ".$details['society_id']." ; ";
         $r = mysqli_query($db_handle, $sql);
         $societyD = mysqli_fetch_assoc($r);
-        print_r($societyD);
+
         $who = "";
 
         if($societyD['president_user_id'] == $details['id'] ) $who = "president";
