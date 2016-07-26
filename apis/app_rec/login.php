@@ -24,6 +24,7 @@ if (mysqli_num_rows($result) >= 1) {
 
         $result = mysqli_query($db_handle, "SELECT  * FROM societies WHERE id = ".$details['society_id']." ; ");
         $societyD = mysqli_fetch_assoc($result);
+        print_r($societyD);
         $who = "";
 
         if($societyD['president_user_id'] == $details['id'] ) $who = "president";
