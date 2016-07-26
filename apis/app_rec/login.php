@@ -20,11 +20,10 @@ if (mysqli_num_rows($result) >= 1) {
     $details['user_exist'] = true;
 
     if ($route[2] == "society"){
-        echo $route[2];
-
-        $result = mysqli_query($db_handle, "SELECT  * FROM societies WHERE id = ".$details['society_id']." ; ");
+        $sql ="SELECT  * FROM societies WHERE id = ".$details['society_id']." ; ";
+        $result = mysqli_query($db_handle, $sql);
         $societyD = mysqli_fetch_assoc($result);
-        print_r($societyD);
+        echo $sql;
         $who = "";
 
         if($societyD['president_user_id'] == $details['id'] ) $who = "president";
