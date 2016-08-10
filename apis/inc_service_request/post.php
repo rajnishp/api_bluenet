@@ -44,9 +44,7 @@ echo "query: " . $sql . "\n";
 $service_request = mysqli_query($db_handle, $sql);
 
 
-$emailIds = array("rahul_lahoria@yahoo.com", "pwnpnwr785@gmail.com", "vikas.niper2012@gmail.com", "kumar.anil8892@yahoo.com", "neelamdubey1988@gmail.com");
-foreach ($emailIds as $to)
-    sendMail($to, "mobile app service requiest", json_encode($input));
+
 
 /*
  *
@@ -120,14 +118,22 @@ For any clarifications contact us at 95990 75355.
 This service is a part of our constant endeavor to deliver Superior Customer Service Experience to our valued customers. At BlueTeam, we value your feedback. Please write to us at feeds@blueteam.in, contact your Client Engagement Manager (CEM).
 If you would like to view any other details regarding your account, please login to our mobile app. This is a system generated message. Please do not reply to this e-mail.";
 
-sendMail($details['email'], "BlueTeam: Request received successfully for " . $input->root->requirements, $emailMessage);
+if ($input->root->user_type == "customer" || !isset($input->root->user_type))
+    sendMail($details['email'], "BlueTeam: Request received successfully for " . $input->root->requirements, $emailMessage);
 
 
 $message = "Dear Customer, your request for "
     . $input->root->requirements . "( SR_ID:" . $input->root->sr_id . ")"
     . " has been received successfully at "
     . date("Y-m-d H:i:s") . ", request will be processed shortly.";
-sendSMS($input->root->mobile, $message);
+
+
+if ($input->root->user_type == "customer" || !isset($input->root->user_type))
+    sendSMS($input->root->mobile, $message);
+
+$emailIds = array("rahul_lahoria@yahoo.com", "mamtasauda91@gmail.com","pwnpnwr785@gmail.com", "vikas.niper2012@gmail.com", "kumar.anil8892@yahoo.com", "neelamdubey1988@gmail.com");
+foreach ($emailIds as $to)
+    sendMail($to, "mobile app service request", json_encode($input));
 
 
 ?>
