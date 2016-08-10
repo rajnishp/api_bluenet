@@ -155,6 +155,11 @@ switch ($page) {
     case "ratings":
         require_once "app_rec/updateRating.php";
         break;
+
+    case "meetings":
+        require_once "cem/postMeeting.php";
+        break;
+
     case "get-score":
         require_once "app_rec/getScore.php";
         break;
