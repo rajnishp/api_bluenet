@@ -49,10 +49,10 @@ if (($handle = fopen( $DataCSVFile, "r")) !== FALSE) {
         $emergency_no = $data[3];
         $native_add = $data[5];
 
-        $refId = createCustomer($db_handle,$name,$mobile,$address);
+        $refId = createCustomer($db_handle,$lName,$lMobile,$lAddress);
         $outArray = UploadDocs($dataDir, $localId);
 
-        $wId = createCustomerWorker($db_handle,$name,$mobile,$address,$outArray['photo'],$refId,$localId,
+        $wId = createCustomerWorker($db_handle,$wName,$wMobile,$wAddress,$outArray['photo'],$refId,$localId,
             $service,
             $outArray['pv'], $outArray['adhar_card'],$outArray['voter_card'],$outArray['driving_license'],$outArray['pan_card'],
             $emergency_no, $native_add);
