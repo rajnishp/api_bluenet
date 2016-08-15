@@ -6,6 +6,12 @@
  * Time: 10:25 PM
  */
 
+
+require_once 'createCustomer.php';
+require_once 'createCustomerWorker.php';
+require_once 'fileUpload.php';
+require_once 'uploadDocs.php';
+
 function phoneNumbervalidation($mobile){
     if (preg_match('/^((\+){0,1}91(\s){0,1}(\-){0,1}(\s){0,1})?([0-9]{10})$/', $mobile, $matches)) {
         print_r($matches);
