@@ -26,8 +26,10 @@ function createCustomer($db_handle,$name,$mobile,$address){
 
     mysqli_query($db_handle, $sql);
 
-    //$id = mysqli_insert_id($db_handle);
 
+    $id = mysqli_insert_id($db_handle);
 
-    return mysqli_insert_id($db_handle);
+    mysqli_query($db_handle, "Update users set md5_id = MD5(".$id .") where id = ".$id );
+
+    return $id;
 }
