@@ -11,6 +11,7 @@ require_once 'createCustomer.php';
 require_once 'createCustomerWorker.php';
 require_once 'fileUpload.php';
 require_once 'uploadDocs.php';
+require_once 'validateDirStr.php';
 
 function phoneNumbervalidation($mobile){
     if (preg_match('/^((\+){0,1}91(\s){0,1}(\-){0,1}(\s){0,1})?([0-9]{10})$/', $mobile, $matches)) {
@@ -22,6 +23,10 @@ function phoneNumbervalidation($mobile){
 
 $DataCSVFile = "wecaredata1.csv";
 $dataDir = "/home/ubuntu/testdata/";
+
+if (!validateDirStr($dataDir)){
+    die("\n invalid File Structure\n");
+}
 
 $config['host'] = "localhost";
 $config['user'] = "root";
