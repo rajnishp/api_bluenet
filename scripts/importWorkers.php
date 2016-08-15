@@ -26,7 +26,7 @@ $dataDir = "/home/ubuntu/testdata/";
 $config['host'] = "localhost";
 $config['user'] = "root";
 $config['password'] = "redhat@11111p";
-$config['database'] = "bluenethack_v3_test";
+$config['database'] = "bluenet_v3_test";
 
 
 $db_handle = mysqli_connect($config['host'], $config['user'], $config['password'], $config['database']);
