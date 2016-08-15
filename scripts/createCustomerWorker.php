@@ -73,7 +73,7 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 
     $wId = mysqli_insert_id($db_handle);
 
-    $sId = array('maid'=> 1,'cook' => 2, 'care cleaner' => 17 );
+    $sId = array('maid'=> 1,'cook' => 2, 'car cleaner' => 15 );
 
     //5. adding worker service
     $sql = "INSERT INTO `service_worker_mappings`
@@ -87,8 +87,8 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 
     //6. adding worker society mapping
     $sql = "INSERT INTO `society_worker_mapping`
-				(`id`, `worker_id`, `society_id`)
-					VALUES ('',
+				(`worker_id`, `society_id`)
+					VALUES (
 					'" . $wId . "',
 					 '2'
 					 );";
