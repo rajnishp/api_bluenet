@@ -20,7 +20,7 @@ function phoneNumbervalidation($mobile){
         return false;
 }
 
-$DataCSVFile = "testdata.csv";
+$DataCSVFile = "wecaredata1.csv";
 $dataDir = "/home/ubuntu/testdata/";
 
 $config['host'] = "localhost";
