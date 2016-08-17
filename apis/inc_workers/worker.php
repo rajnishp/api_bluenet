@@ -17,7 +17,7 @@ WHERE w.`ref_id` =". $_GET['user_id'];
 if(isset($route[2]) && $route[2] == "society" && isset($_GET['society_id']) ){
 
     $sql = "SELECT u.id AS id, u.name, u.mobile, u.rating, u.photo, u.`address` , u.`area` , w.id AS worker_id, w.emergency_no,".
-        " ud.adhar_card, ud.voter_id, ud.driving_license, ud.pan_card, w.`status`,w.local_id, w.`native_place`,w.`dob`, ".
+        " ud.pv, ud.adhar_card, ud.voter_id, ud.driving_license, ud.pan_card, w.`status`,w.local_id, w.`native_place`,w.`dob`, ".
         " lu.name as lord_name, lu.mobile as lord_mobile, lu.`address` as lord_address ".
         " FROM `bluenet_v3`.`society_worker_mapping` AS swm ".
         " LEFT JOIN `bluenet_v3`.`workers` AS w on swm.worker_id = w.id".
