@@ -30,7 +30,7 @@ $sql = "SELECT sr.id, sr.name, sr.user_id as c_user_id, sr.mobile, sr.address, s
     . "LEFT JOIN `bluenet_v3`.ratings AS wr ON wcm.user_worker_id = wr.user_id AND sr.user_id = wr.customer_user_id "
     . "LEFT JOIN `bluenet_v3`.users AS u ON sr.user_id = u.id "
 
-    . "WHERE sr.user_cem_id = '" . $route[2]  ."' AND sr.status =  '" . $_GET['status']  ."'"  ;
+    . "WHERE sr.user_cem_id = '" . $route[2]  ."' AND sr.status =  '" . $_GET['status']  ."' ORDER BY `service_request`.`creation` DESC "  ;
 
 $result = mysqli_query($db_handle, $sql);
 //echo $sql;
