@@ -7,6 +7,7 @@
  */
 
 $input = json_decode(file_get_contents("php://input"));
+
 function createCustomer($db_handle,$name,$mobile,$address,$society){
 
 
@@ -127,7 +128,7 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 }
 
 
-var_dump($input);die();
+
 
 
 $refId = createCustomer($db_handle,$input->root->resident_name,$input->root->resident_mobile,$input->root->resident_address, $route[2]);
