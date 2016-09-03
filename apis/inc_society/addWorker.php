@@ -64,6 +64,10 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 
     $uwId = mysqli_insert_id($db_handle);
 
+    if($uwId == 0){
+        echo " Error: " . mysqli_error($db_handle);
+    }
+
 
     //2. updating md5 id
     $result = mysqli_query($db_handle, "Update `bluenet_v3`.users set md5_id = MD5(".$uwId .") where id = ".$uwId );
