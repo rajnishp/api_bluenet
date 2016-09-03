@@ -109,7 +109,7 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 
     $wId = mysqli_insert_id($db_handle);
     if($wId == 0 ||$wId == null){
-        echo " Error: " . mysqli_error($db_handle);
+        echo " Error: " . mysqli_error($db_handle);die();
     }
 
     $sId = array('maid'=> 1,'cook' => 2, 'car cleaner' => 15 );
