@@ -2,10 +2,38 @@
 /**
  * Created by PhpStorm.
  * User: spider-ninja
- * Date: 8/14/16
- * Time: 8:46 PM
+ * Date: 9/3/16
+ * Time: 1:38 PM
  */
 
+$input = json_decode(file_get_contents("php://input"));
+function createCustomer($db_handle,$name,$mobile,$address){
+
+
+    $sql = "INSERT INTO `users` ( `id` , `name` , `mobile` , `email` , `password` , `type` , `address` , `area` ," .
+        " `creation` ,  `society_id`  )
+			VALUES (NULL ,
+			'" . $name . "',
+			'" . $mobile . "',
+			'',
+			'" . $mobile . "',
+			'customer',
+			'".$address."',
+			'',
+			'" . date("Y-m-d H:i:s") . "',
+			'2'
+
+			);";
+
+    mysqli_query($db_handle, $sql);
+
+
+    $id = mysqli_insert_id($db_handle);
+
+    mysqli_query($db_handle, "Update users set md5_id = MD5(".$id .") where id = ".$id );
+
+    return $id;
+}
 function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$localId,
                               $service,
                               $pv,$adhar_card,$voter_card,$driving_license,$pan_card,
@@ -97,3 +125,18 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 
     return $uwId;
 }
+
+
+
+
+
+$refId = createCustomer($db_handle,$input->root->resident_name,$input->root->resident_mobile,$input->root->resident_address);
+
+
+$wId = createCustomerWorker($db_handle,$input->root->worker_name,$input->root->worker_mobile,$input->root->worker_address,
+    $input->root->worker_photo,$refId,$input->root->worker_localId,
+    $input->root->worker_service,
+    $input->root->worker_pv, $input->root->worker_ac,$input->root->worker_vc,$input->root->worker_dl,$input->root->worker_pc,
+    $input->root->worker_emergency_no, $input->root->worker_native_add);
+
+echo $wId.",";

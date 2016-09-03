@@ -23,6 +23,19 @@ switch ($page) {
 
         break;
 
+    case "inc_society":
+        switch ($route[3]) {
+            case 'addWorker':
+                require_once "inc_society/addWorker.php";
+                break;
+
+
+            default:
+                echo "Wrong Way!!! Contact dev@blueteam.in";
+
+                break;
+        }
+
     case "feedback":
         require_once "inc_client/feedback.php";
 
