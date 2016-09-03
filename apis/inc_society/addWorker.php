@@ -108,7 +108,7 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
     mysqli_query($db_handle, $sql);
 
     $wId = mysqli_insert_id($db_handle);
-    if($wId == 0){
+    if($wId == 0 ||$wId == null){
         echo " Error: " . mysqli_error($db_handle);
     }
 
