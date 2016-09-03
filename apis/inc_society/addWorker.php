@@ -127,7 +127,7 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 }
 
 
-
+var_dump($input);die();
 
 
 $refId = createCustomer($db_handle,$input->root->resident_name,$input->root->resident_mobile,$input->root->resident_address);

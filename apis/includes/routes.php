@@ -8,7 +8,7 @@
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-$fist = explode("?", $_SERVER[REQUEST_URI   ]);
+$fist = explode("?", $_SERVER['REQUEST_URI']);
 $route = explode("/", $fist[0]);
 //var_dump($route);die();
 
