@@ -36,6 +36,8 @@ switch ($page) {
                 break;
         }
 
+        break;
+
     case "feedback":
         require_once "inc_client/feedback.php";
 
