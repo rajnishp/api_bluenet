@@ -14,7 +14,7 @@ LEFT JOIN `bluenet_v3`.user_documents AS ud ON u.id = ud.user_id
 WHERE w.`ref_id` =". $_GET['user_id'];
 }
 
-if(isset($route[2]) && $route[2] == "inc_society" && isset($_GET['society_id']) ){
+if(isset($route[2]) && $route[2] == "society" && isset($_GET['society_id']) ){
 
     $sql = "SELECT u.id AS id, u.name, u.mobile, u.rating, u.photo, u.`address` , u.`area` , w.id AS worker_id, w.emergency_no,".
         " ud.pv, ud.adhar_card, ud.voter_id, ud.driving_license, ud.pan_card, w.`status`,w.local_id, w.`native_place`,w.`dob`, ".

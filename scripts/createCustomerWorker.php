@@ -85,7 +85,7 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 
     mysqli_query($db_handle, $sql);
 
-    //6. adding worker inc_society mapping
+    //6. adding worker society mapping
     $sql = "INSERT INTO `society_worker_mapping`
 				(`worker_id`, `society_id`)
 					VALUES (

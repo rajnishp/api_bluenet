@@ -19,7 +19,7 @@ $details = mysqli_fetch_assoc($result);
 if (mysqli_num_rows($result) >= 1) {
     $details['user_exist'] = true;
 
-    if ($route[2] == "inc_society"){
+    if ($route[2] == "society"){
         $sql ="SELECT  * FROM `bluenet_v3`.societies WHERE id = ".$details['society_id']." ; ";
         $r = mysqli_query($db_handle, $sql);
         $societyD = mysqli_fetch_assoc($r);
@@ -33,7 +33,7 @@ if (mysqli_num_rows($result) >= 1) {
 
         if($who != ""){
             $details['who'] = $who;
-            $details['inc_society'] = $societyD;
+            $details['society'] = $societyD;
         }
 
 
