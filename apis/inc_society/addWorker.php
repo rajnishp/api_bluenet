@@ -146,7 +146,7 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 $refId = createCustomer($db_handle,$input->root->resident_name,$input->root->resident_mobile,$input->root->resident_address, $route[2]);
 
 
-if($refId == 0)
+if($refId != 0)
 $wId = createCustomerWorker($db_handle,$input->root->worker_name,$input->root->worker_mobile,$input->root->worker_address,
     $input->root->worker_photo,$refId,$input->root->worker_localId,
     $input->root->worker_service,
