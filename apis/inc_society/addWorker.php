@@ -64,6 +64,7 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 
     $uwId = mysqli_insert_id($db_handle);
 
+    echo $uwId. "\n";
     if($uwId == 0 || $uwId == null){
         echo " Error: " . mysqli_error($db_handle);die();
     }
@@ -108,6 +109,7 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
     mysqli_query($db_handle, $sql);
 
     $wId = mysqli_insert_id($db_handle);
+    echo $wId. "\n";
     if($wId == 0 ||$wId == null){
         echo " Error: " . mysqli_error($db_handle);die();
     }
