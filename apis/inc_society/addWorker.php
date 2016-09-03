@@ -7,7 +7,7 @@
  */
 
 $input = json_decode(file_get_contents("php://input"));
-function createCustomer($db_handle,$name,$mobile,$address){
+function createCustomer($db_handle,$name,$mobile,$address,$society){
 
 
     $sql = "INSERT INTO `users` ( `id` , `name` , `mobile` , `email` , `password` , `type` , `address` , `area` ," .
@@ -21,7 +21,7 @@ function createCustomer($db_handle,$name,$mobile,$address){
 			'".$address."',
 			'',
 			'" . date("Y-m-d H:i:s") . "',
-			'2'
+			'".$society."'
 
 			);";
 
@@ -37,7 +37,7 @@ function createCustomer($db_handle,$name,$mobile,$address){
 function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$localId,
                               $service,
                               $pv,$adhar_card,$voter_card,$driving_license,$pan_card,
-                              $emergency_no, $native_add){
+                              $emergency_no, $native_add, $society){
 
 
     //1. adding user worker
@@ -52,7 +52,7 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 			'".$address."',
 			'',
 			'" . date("Y-m-d H:i:s") . "',
-			'2',
+			'".$society."',
             '".$photo."'
 			);";
 
@@ -118,7 +118,7 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 				(`worker_id`, `society_id`)
 					VALUES (
 					'" . $wId . "',
-					 '2'
+					 '".$society."'
 					 );";
 
     mysqli_query($db_handle, $sql);
@@ -130,13 +130,13 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 var_dump($input);die();
 
 
-$refId = createCustomer($db_handle,$input->root->resident_name,$input->root->resident_mobile,$input->root->resident_address);
+$refId = createCustomer($db_handle,$input->root->resident_name,$input->root->resident_mobile,$input->root->resident_address, $route[2]);
 
 
 $wId = createCustomerWorker($db_handle,$input->root->worker_name,$input->root->worker_mobile,$input->root->worker_address,
     $input->root->worker_photo,$refId,$input->root->worker_localId,
     $input->root->worker_service,
     $input->root->worker_pv, $input->root->worker_ac,$input->root->worker_vc,$input->root->worker_dl,$input->root->worker_pc,
-    $input->root->worker_emergency_no, $input->root->worker_native_add);
+    $input->root->worker_emergency_no, $input->root->worker_native_add, $route[2]);
 
 echo $wId.",";
