@@ -58,7 +58,7 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 			'" . date("Y-m-d H:i:s") . "',
 			'".$society."',
             '".$photo."'
-			) ;";
+			) ON DUPLICATE KEY UPDATE id=LAST_INSERT_ID(id) ;";
 
     mysqli_query($db_handle, $sql);
 
