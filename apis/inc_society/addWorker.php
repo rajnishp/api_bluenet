@@ -144,4 +144,9 @@ $wId = createCustomerWorker($db_handle,$input->root->worker_name,$input->root->w
     $input->root->worker_pv, $input->root->worker_ac,$input->root->worker_vc,$input->root->worker_dl,$input->root->worker_pc,
     $input->root->worker_emergency_no, $input->root->worker_native_add, $route[2]);
 
-echo $refId." ".$wId.",";
+//echo $refId." ".$wId.",";
+
+$input->root->resident_id = $refId;
+$input->root->worker_id = $wId;
+
+print json_encode($input);
