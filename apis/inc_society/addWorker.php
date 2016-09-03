@@ -31,6 +31,9 @@ function createCustomer($db_handle,$name,$mobile,$address,$society){
 
     $id = mysqli_insert_id($db_handle);
 
+    if($id == 0){
+        echo " Error: " . mysqli_error($db_handle);
+    }
     mysqli_query($db_handle, "Update users set md5_id = MD5(".$id .") where id = ".$id );
 
     return $id;
