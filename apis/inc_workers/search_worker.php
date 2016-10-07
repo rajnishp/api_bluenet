@@ -21,7 +21,8 @@
 */
 
 $input = json_decode(file_get_contents("php://input"));
-print json_encode($input);
+$id_number = $_GET['id_number'];
+$id_type = $_GET['id_type'];
 function getUserProfile($db_handle,$userId){
     $data = "";
     $userdata = mysqli_query($db_handle, 
@@ -38,28 +39,28 @@ function getUserProfile($db_handle,$userId){
     return  $userdatarow;                                          
 }
 
-if($input->root->user_id){
-    $userId =  $input->root->user_id;
+if($id_type = "user_id"){
+    $userId =  $id_number;
 }
-else if($input->root->mobile){
-    $sql = "SELECT `id` FROM `users` WHERE `mobile` ='".$input->root->mobile."'";
+else if($id_type = "mobile"){
+    $sql = "SELECT `id` FROM `users` WHERE `mobile` ='".$id_number."'";
 }
 else {
     $searchPram = "";
-    if ($input->root->pc){
-        $searchPram = " `pc_uid` = '".$input->root->pc."'";
+    if ($id_type = "pc"){
+        $searchPram = " `pc_uid` = '".$id_number."'";
     }
-    else if ($input->root->pv){
-        $searchPram = " `pv_uid` = '".$input->root->pv."'";
+    else if ($id_type = "pv"){
+        $searchPram = " `pv_uid` = '".$id_number."'";
     }
-    else if ($input->root->ac){
-        $searchPram = " `ac_uid` = '".$input->root->ac."'";
+    else if ($id_type = "ac"){
+        $searchPram = " `ac_uid` = '".$id_number."'";
     }
-    else if ($input->root->vc){
-        $searchPram = " `vc_uid` = '".$input->root->vc."'";
+    else if ($id_type = "vc"){
+        $searchPram = " `vc_uid` = '".$id_number."'";
     }
     else {
-        $searchPram = " `dl_uid` = '".$input->root->dl."'";
+        $searchPram = " `dl_uid` = '".$id_number."'";
     }
     $sql = "SELECT user_id as id FROM `user_documents_uid` WHERE". $searchPram;
 }
@@ -69,7 +70,7 @@ $userrowid = mysqli_fetch_array($userrow);
 $userId = $userrowid['id'];
 $profile = getUserProfile($db_handle,$userId);
 
-/*
+
 echo "{\"root\":{\"worker\":";
 print json_encode($profile);
-echo "}}";*/
+echo "}}";
