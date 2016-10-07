@@ -21,7 +21,7 @@
 */
 
 $input = json_decode(file_get_contents("php://input"));
-print_r($input);
+print json_encode($input);
 function getUserProfile($db_handle,$userId){
     $data = "";
     $userdata = mysqli_query($db_handle, 
@@ -69,7 +69,7 @@ $userrowid = mysqli_fetch_array($userrow);
 $userId = $userrowid['id'];
 $profile = getUserProfile($db_handle,$userId);
 
-
+/*
 echo "{\"root\":{\"worker\":";
 print json_encode($profile);
-echo "}}";
+echo "}}";*/
