@@ -31,7 +31,11 @@ $max = $noOfMaxDays*intval($costsArr[0]["cost"]);
 
 //$startHour = date('H', strtotime($input->root->selectedTime));
 $startHour = $input->root->startHr;
-
+/*
+ * max = max + (12-hour)*max;
+ *
+ *
+ * */
 for($i = 1;$i < $input->root->hours;$i++) {
     $max = $max + ($noOfMaxDays * intval($costsArr[($startHour + $i)%24]["cost"]));
 

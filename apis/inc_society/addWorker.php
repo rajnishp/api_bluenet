@@ -139,6 +139,21 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
     return $uwId;
 }
 
+function createDocUid($dbHandle,$uwId,$pvUid,$adharCardUid, $voterCardUid, $drivingLicenseUid, $panCardUid){
+
+    $sql = "INSERT INTO `bluenet_v3`.`user_documents_uid` (`id`,  `user_id`, `pv_uid`, `adhar_card_uid`, `voter_id_uid`, `driving_license_uid`, `pan_card_uid`)
+				VALUES (NULL,
+					'" . $uwId . "',
+					'" . $pvUid . "',
+					 '" . $adharCardUid . "',
+					  '" . $voterCardUid . "',
+					   '" . $drivingLicenseUid . "',
+						'" . $panCardUid . "');";
+
+    return mysqli_query($dbHandle, $sql);
+
+}
+
 
 
 
@@ -146,16 +161,18 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
 $refId = createCustomer($db_handle,$input->root->resident_name,$input->root->resident_mobile,$input->root->resident_address, $route[2]);
 
 
-if($refId != 0)
-$wId = createCustomerWorker($db_handle,$input->root->worker_name,$input->root->worker_mobile,$input->root->worker_address,
-    $input->root->worker_photo,$refId,$input->root->worker_localId,
-    $input->root->worker_service,
-    $input->root->worker_pv, $input->root->worker_ac,$input->root->worker_vc,$input->root->worker_dl,$input->root->worker_pc,
-    $input->root->worker_emergency_no, $input->root->worker_native_add, $route[2]);
+if($refId != 0) {
+    $wId = createCustomerWorker($db_handle, $input->root->worker_name, $input->root->worker_mobile, $input->root->worker_address,
+        $input->root->worker_photo, $refId, $input->root->worker_localId,
+        $input->root->worker_service,
+        $input->root->worker_pv, $input->root->worker_ac, $input->root->worker_vc, $input->root->worker_dl, $input->root->worker_pc,
+        $input->root->worker_emergency_no, $input->root->worker_native_add, $route[2]);
 
+    createDocUid($db_handle,$wId,$input->root->worker_pv_uid,$input->root->worker_ac_uid,
+        $input->root->worker_vc_uid, $input->root->worker_dl_uid, $input->root->worker_pc_uid);
 //echo $refId." ".$wId.",";
 
-$input->root->resident_id = $refId;
-$input->root->worker_id = $wId;
-
+    $input->root->resident_id = $refId;
+    $input->root->worker_id = $wId;
+}
 print json_encode($input);
