@@ -23,6 +23,8 @@
 $input = json_decode(file_get_contents("php://input"));
 $id_number = $_GET['id_number'];
 $id_type = $_GET['id_type'];
+print_r($_GET);
+die;
 function getUserProfile($db_handle,$userId){
     $data = "";
     $userdata = mysqli_query($db_handle, 
