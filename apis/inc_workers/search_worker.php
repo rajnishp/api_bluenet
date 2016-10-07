@@ -35,7 +35,7 @@ function getUserProfile($db_handle,$userId){
           LEFT JOIN `bluenet_v3`.users AS d ON b.ref_id = d.id 
           WHERE a.id = '".$userId."'");
     $userdatarow = mysqli_fetch_assoc($userdata);
-    return  $userdata;                                          
+    return  $userdatarow;                                          
 }
 
 if($input->root->user_id){
