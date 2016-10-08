@@ -44,6 +44,9 @@ if($id_type = "user_id"){
 }
 else if($id_type = "mobile"){
     $sql = "SELECT `id` FROM `users` WHERE `mobile` ='".$id_number."'";
+    $userrow = mysqli_query($db_handle, $sql);
+    $userrowid = mysqli_fetch_array($userrow);
+    $userId = $userrowid['id'];
 }
 else {
     $searchPram = "";
@@ -63,11 +66,11 @@ else {
         $searchPram = " `dl_uid` = '".$id_number."'";
     }
     $sql = "SELECT user_id as id FROM `user_documents_uid` WHERE". $searchPram;
+    $userrow = mysqli_query($db_handle, $sql);
+    $userrowid = mysqli_fetch_array($userrow);
+    $userId = $userrowid['id'];
 }
 
-$userrow = mysqli_query($db_handle, $sql);
-$userrowid = mysqli_fetch_array($userrow);
-$userId = $userrowid['id'];
 var_dump($userId);
 die;
 $profile = getUserProfile($db_handle,$userId);
