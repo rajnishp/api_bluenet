@@ -71,10 +71,7 @@ else {
     $userId = $userrowid['id'];
 }
 
-var_dump($userId);
-die;
 $profile = getUserProfile($db_handle,$userId);
-
 
 echo "{\"root\":{\"worker\":";
 print json_encode($profile);
