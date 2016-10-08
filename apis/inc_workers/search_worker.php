@@ -23,8 +23,6 @@
 $input = json_decode(file_get_contents("php://input"));
 $id_number = $_GET['id_number'];
 $id_type = $_GET['id_type'];
-print_r($_GET);
-die;
 function getUserProfile($db_handle,$userId){
     $data = "";
     $userdata = mysqli_query($db_handle, 
@@ -33,8 +31,8 @@ function getUserProfile($db_handle,$userId){
           c.pv, c.adhar_card, c.voter_id, c.driving_license, c.pan_card, 
           d.name as lord_name, d.mobile as lord_mobile, d.address as lord_address 
           FROM `bluenet_v3`.`users` AS a 
-          LEFT JOIN `bluenet_v3`.`workers` AS b on b.user_id = '".$userId."'
-          LEFT JOIN `bluenet_v3`.user_documents AS c ON c.user_id = '".$userId."'
+          LEFT JOIN `bluenet_v3`.`workers` AS b on b.user_id = a.id
+          LEFT JOIN `bluenet_v3`.user_documents AS c ON c.user_id = a.id
           LEFT JOIN `bluenet_v3`.users AS d ON b.ref_id = d.id 
           WHERE a.id = '".$userId."'");
     $userdatarow = mysqli_fetch_assoc($userdata);
@@ -70,6 +68,8 @@ else {
 $userrow = mysqli_query($db_handle, $sql);
 $userrowid = mysqli_fetch_array($userrow);
 $userId = $userrowid['id'];
+var_dump($userId);
+die;
 $profile = getUserProfile($db_handle,$userId);
 
 
