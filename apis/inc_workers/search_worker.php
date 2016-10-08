@@ -73,6 +73,4 @@ else {
 
 $profile = getUserProfile($db_handle,$userId);
 
-echo "{\"root\":{\"worker\":";
-print json_encode($profile);
-echo "}}";
+echo "{\"root\":{\"worker\":".json_encode($profile)."}}";
