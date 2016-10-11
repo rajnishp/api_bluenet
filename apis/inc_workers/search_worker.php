@@ -23,6 +23,7 @@
 $input = json_decode(file_get_contents("php://input"));
 $id_number = $_GET['id_number'];
 $id_type = $_GET['id_type'];
+$userId = "";
 function getUserProfile($db_handle,$userId){
     $data = "";
     $userdata = mysqli_query($db_handle, 
@@ -47,8 +48,9 @@ elseif($id_type == "mobile"){
     $userrow = mysqli_query($db_handle, $sql);
     $userrowid = mysqli_fetch_array($userrow);
     print_r($userrowid);
-    die();
+    
     $userId = $userrowid['id'];
+    echo $userId;
     
 }
 else {
@@ -75,5 +77,5 @@ else {
 }
 
 $profile = getUserProfile($db_handle,$userId);
-echo $userId;
+
 //echo "{\"root\":{\"worker\":".json_encode($profile)."}}";
