@@ -46,9 +46,9 @@ elseif($id_type = "mobile"){
     $sql = "SELECT `id` FROM `users` WHERE `mobile` ='".$id_number."'";
     $userrow = mysqli_query($db_handle, $sql);
     $userrowid = mysqli_fetch_array($userrow);
-    var_dump($userrow);
-    die();
     $userId = $userrowid['id'];
+    echo $userId;
+    die;
 }
 else {
     $searchPram = "";
