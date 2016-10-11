@@ -42,10 +42,12 @@ function getUserProfile($db_handle,$userId){
 if($id_type = "user_id"){
     $userId =  $id_number;
 }
-else if($id_type = "mobile"){
+elseif($id_type = "mobile"){
     $sql = "SELECT `id` FROM `users` WHERE `mobile` ='".$id_number."'";
     $userrow = mysqli_query($db_handle, $sql);
     $userrowid = mysqli_fetch_array($userrow);
+    var_dump($userrow);
+    die();
     $userId = $userrowid['id'];
 }
 else {
