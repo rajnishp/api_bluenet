@@ -46,7 +46,7 @@ if($id_type == "user_id"){
 elseif($id_type == "mobile"){
 
     $sql = "SELECT `id` FROM `users` WHERE `mobile` ='".$id_number."'";
-     = mysqli_query($db_handle, $sql);
+    $userrow = mysqli_query($db_handle, $sql);
     $userrowid = mysqli_fetch_array($userrow);
     var_dump($userrow) ;
     die;
