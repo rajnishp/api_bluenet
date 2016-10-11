@@ -39,10 +39,10 @@ function getUserProfile($db_handle,$userId){
     return  $userdatarow;                                          
 }
 
-if($id_type = "user_id"){
+if($id_type == "user_id"){
     $userId =  $id_number;
 }
-elseif($id_type = "mobile"){
+elseif($id_type == "mobile"){
     $sql = "SELECT `id` FROM `users` WHERE `mobile` ='".$id_number."'";
     $userrow = mysqli_query($db_handle, $sql);
     $userrowid = mysqli_fetch_array($userrow);
@@ -51,16 +51,16 @@ elseif($id_type = "mobile"){
 }
 else {
     $searchPram = "";
-    if ($id_type = "pc"){
+    if ($id_type == "pc"){
         $searchPram = " `pan_card_uid` = '".$id_number."'";
     }
-    else if ($id_type = "pv"){
+    else if ($id_type == "pv"){
         $searchPram = " `pv_uid` = '".$id_number."'";
     }
-    else if ($id_type = "ac"){
+    else if ($id_type == "ac"){
         $searchPram = " `adhar_card_uid` = '".$id_number."'";
     }
-    else if ($id_type = "vc"){
+    else if ($id_type == "vc"){
         $searchPram = " `voter_id_uid` = '".$id_number."'";
     }
     else {
