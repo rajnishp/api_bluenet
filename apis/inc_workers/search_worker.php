@@ -47,8 +47,7 @@ elseif($id_type = "mobile"){
     $userrow = mysqli_query($db_handle, $sql);
     $userrowid = mysqli_fetch_array($userrow);
     $userId = $userrowid['id'];
-    echo $userId;
-    die;
+    
 }
 else {
     $searchPram = "";
@@ -74,5 +73,5 @@ else {
 }
 
 $profile = getUserProfile($db_handle,$userId);
-
-echo "{\"root\":{\"worker\":".json_encode($profile)."}}";
+echo $userId;
+//echo "{\"root\":{\"worker\":".json_encode($profile)."}}";
