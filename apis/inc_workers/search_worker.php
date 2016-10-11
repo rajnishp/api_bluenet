@@ -51,19 +51,19 @@ else if($id_type = "mobile"){
 else {
     $searchPram = "";
     if ($id_type = "pc"){
-        $searchPram = " `pc_uid` = '".$id_number."'";
+        $searchPram = " `pan_card_uid` = '".$id_number."'";
     }
     else if ($id_type = "pv"){
         $searchPram = " `pv_uid` = '".$id_number."'";
     }
     else if ($id_type = "ac"){
-        $searchPram = " `ac_uid` = '".$id_number."'";
+        $searchPram = " `adhar_card_uid` = '".$id_number."'";
     }
     else if ($id_type = "vc"){
-        $searchPram = " `vc_uid` = '".$id_number."'";
+        $searchPram = " `voter_id_uid` = '".$id_number."'";
     }
     else {
-        $searchPram = " `dl_uid` = '".$id_number."'";
+        $searchPram = " `driving_license_uid` = '".$id_number."'";
     }
     $sql = "SELECT user_id as id FROM `user_documents_uid` WHERE". $searchPram;
     $userrow = mysqli_query($db_handle, $sql);
