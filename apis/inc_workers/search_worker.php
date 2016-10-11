@@ -44,13 +44,15 @@ if($id_type == "user_id"){
     $userId =  $id_number;
 }
 elseif($id_type == "mobile"){
+    echo "hello";
+    die;
     $sql = "SELECT `id` FROM `users` WHERE `mobile` ='".$id_number."'";
     $userrow = mysqli_query($db_handle, $sql);
     $userrowid = mysqli_fetch_array($userrow);
     
     
     $userId = $userrowid['id'];
-    echo $userId;
+    
     
 }
 else {
