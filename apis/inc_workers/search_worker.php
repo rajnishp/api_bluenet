@@ -45,9 +45,7 @@ if($id_type == "user_id"){
 }
 elseif($id_type == "mobile"){
 
-    $sql = "SELECT id FROM users WHERE mobile = '".$id_number."'";
-    echo $sql;
-    die ;
+    $sql = "SELECT id FROM `bluenet_v3`.`users` WHERE mobile = '".$id_number."'";
     $userrow = mysqli_query($db_handle, $sql);
     $userrowid = mysqli_fetch_array($userrow);  
     $userId = $userrowid['id'];
@@ -71,7 +69,7 @@ else {
     else {
         $searchPram = " `driving_license_uid` = '".$id_number."'";
     }
-    $sql = "SELECT user_id as id FROM `user_documents_uid` WHERE". $searchPram;
+    $sql = "SELECT user_id as id FROM `bluenet_v3`.`user_documents_uid` WHERE". $searchPram;
     $userrow = mysqli_query($db_handle, $sql);
     $userrowid = mysqli_fetch_array($userrow);
     $userId = $userrowid['id'];
@@ -79,4 +77,4 @@ else {
 
 $profile = getUserProfile($db_handle,$userId);
 
-//echo "{\"root\":{\"worker\":".json_encode($profile)."}}";
+echo "{\"root\":{\"worker\":".json_encode($profile)."}}";
