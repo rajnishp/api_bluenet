@@ -45,11 +45,11 @@ if($id_type == "user_id"){
 }
 elseif($id_type == "mobile"){
 
-    $sql = "SELECT `id` FROM `users` WHERE `mobile` ='".$id_number."'";
+    $sql = "SELECT id FROM users WHERE mobile = '".$id_number."'";
+    echo $sql;
+    die ;
     $userrow = mysqli_query($db_handle, $sql);
-    $userrowid = mysqli_fetch_array($userrow);
-    
-    
+    $userrowid = mysqli_fetch_array($userrow);  
     $userId = $userrowid['id'];
     
     
@@ -79,4 +79,4 @@ else {
 
 $profile = getUserProfile($db_handle,$userId);
 
-echo "{\"root\":{\"worker\":".json_encode($profile)."}}";
+//echo "{\"root\":{\"worker\":".json_encode($profile)."}}";
