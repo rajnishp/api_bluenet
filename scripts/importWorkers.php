@@ -22,7 +22,7 @@ function phoneNumbervalidation($mobile){
 }
 
 $DataCSVFile = "wecaredata2.csv";
-$dataDir = "/home/ubuntu/doc/";
+$dataDir = "/home/ubuntu/data/doc2/";
 
 if (!validateDirStr($dataDir)){
     die("\n invalid File Structure\n");
