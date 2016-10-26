@@ -21,7 +21,7 @@ function phoneNumbervalidation($mobile){
         return false;
 }
 
-$DataCSVFile = "wecaredata1.csv";
+$DataCSVFile = "wecaredata2.csv";
 $dataDir = "/home/ubuntu/doc/";
 
 if (!validateDirStr($dataDir)){
