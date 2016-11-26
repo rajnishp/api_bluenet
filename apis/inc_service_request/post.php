@@ -63,14 +63,16 @@ $service_request = mysqli_query($db_handle, $sql);
  * 		"priority":"3"}} tc
  * */
 $sql = "INSERT INTO `bluenet_v3`.`service_request`
-				(`id`, `user_id`, `name`, `mobile`, `service`, `service_type`, `salary`, `remarks`, `worker_gender`,
+				(`id`, `user_id`, `name`, `mobile`, `service`, `service_id`, `service_type`, `service_provider_id`, `salary`, `remarks`, `worker_gender`,
 					`creation`,  `gps_location`, `device_id`, `address`, `priority`, `startingDateTime`)
 				VALUES
 				(NULL, '" . $input->root->user_id . "',
 						'" . $input->root->name . "',
 						'" . $input->root->mobile . "',
 						'" . $input->root->requirements . "',
+						'" . $input->root->service_id . "',
 						'" . $input->root->service_type . "',
+						'" . $input->root->service_provider_id . "',
 						'',
 						'" . $input->root->remarks . "',
 						'',
