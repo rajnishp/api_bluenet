@@ -23,6 +23,11 @@ switch ($page) {
 
         break;
 
+    case "search":
+        require_once "inc_workers/search_worker.php";
+
+        break;
+
     case "society":
         switch ($route[3]) {
             case 'addWorker':
