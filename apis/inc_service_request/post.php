@@ -19,29 +19,6 @@ $input = json_decode(file_get_contents("php://input"));
  * */
 
 
-$sql = "INSERT INTO service_request (`id`, `name`, `mobile`, `requirements`, `gender`, `timings`,
-													`min_salary`, `max_salary`, `address`, `area`, `remarks`, `worker_area`,
-													`work_time`, `created_time`, `date`, `user_id`, `priority`)
-				VALUES (NULL,
-					'" . $input->root->name . "',
-					'" . $input->root->mobile . "',
-					'" . $input->root->requirements . "',
-					'" . $input->root->gender . "',
-					'" . $input->root->timings . "',
-					'" . $input->root->min_salary . "',
-					'" . $input->root->max_salary . "',
-					'" . $input->root->address . "',
-					'" . $input->root->area . "',
-					'" . $input->root->remarks . "',
-					'" . $input->root->worker_area . "',
-					'" . $input->root->work_time . "',
-					'" . date("Y-m-d") . "',
-					'" . $input->root->date . "',
-
-					'" . $input->root->user_id . "',
-					'" . $input->root->priority . "');";
-echo "query: " . $sql . "\n";
-$service_request = mysqli_query($db_handle, $sql);
 
 
 
@@ -136,6 +113,6 @@ if ($input->root->user_type == "customer" || !isset($input->root->user_type))
 $emailIds = array("rahul_lahoria@yahoo.com", "mamtasauda91@gmail.com","pwnpnwr785@gmail.com", "vikas.niper2012@gmail.com", "kumar.anil8892@yahoo.com", "neelamdubey1988@gmail.com");
 foreach ($emailIds as $to)
     sendMail($to, "mobile app service request", json_encode($input));
-
+print json_encode($input);
 
 ?>
