@@ -44,6 +44,19 @@ $emailIds = array("rahul_lahoria@yahoo.com", "pwnpnwr785@gmail.com", "vikas.nipe
 foreach ($emailIds as $to)
     sendMail($to, "User got registered", json_encode($input));
 
+if($input->root->coupon != ""){
+
+    $arrCoupon = explode("#",$input->root->coupon);
+
+    $result = mysqli_query($db_handle, "SELECT  `mobile_no` FROM blueteam_service_providers.`service_providers`
+                WHERE id = " . $arrCoupon[1] . "; ");
+
+    $details = mysqli_fetch_assoc($result);
+    sendSMS($details['mobile_no'], "100Rs got added to your account,\nPlease give 100Rs discount to \n".$input->root->name ." ".$input->root->mobile);
+
+
+}
+
 print json_encode($input);
 
 ?>
