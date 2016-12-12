@@ -13,7 +13,14 @@ $sql = "INSERT INTO clients (id, name, email, password, mobile, location)
 
 $user = mysqli_query($db_handle, $sql);
 
-$sql = "INSERT INTO `bluenet_v3`.`users` ( `id` , `name` , `mobile` , `email` , `password` , `type` , `address` , `area` ," .
+$serviceProviderId = 0;
+if($input->root->coupon != ""){
+
+    $arrCoupon = explode("#",$input->root->coupon);
+    $serviceProviderId = $arrCoupon[1];
+}
+
+$sql = "INSERT INTO `bluenet_v3`.`users` ( `id` , `name` , `mobile` , `email` , `password` , `type` ,`sp_id`, `address` , `area` ," .
     " `creation` ,  `gps_location` , `device_id` )
 			VALUES (NULL ,
 			'" . $input->root->name . "',
@@ -21,6 +28,7 @@ $sql = "INSERT INTO `bluenet_v3`.`users` ( `id` , `name` , `mobile` , `email` , 
 			'" . $input->root->email . "',
 			'" . $input->root->password . "',
 			'customer',
+			'" . $serviceProviderId . "',
 			'',
 			'',
 			'" . date("Y-m-d H:i:s") . "',
