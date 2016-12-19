@@ -35,9 +35,10 @@ $sql = "SELECT sr.id, sr.name, sr.user_id as c_user_id, sr.mobile, sr.address, s
 
 $result = mysqli_query($db_handle, $sql);
 //echo $sql;
-
+for($costsArr = array(); $cost = mysqli_fetch_assoc($result); $costsArr[] = $cost);
+    
 echo "{\"root\":{\"srs\":";
-print json_encode($result);
+print json_encode($costsArr);
 echo "}}";
 
 ?>
