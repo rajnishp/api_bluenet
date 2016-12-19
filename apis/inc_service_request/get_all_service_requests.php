@@ -37,7 +37,7 @@ $result = mysqli_query($db_handle, $sql);
 //echo $sql;
 
 echo "{\"root\":{\"srs\":";
-print json_encode($costsArr);
+print json_encode($result);
 echo "}}";
 
 ?>
