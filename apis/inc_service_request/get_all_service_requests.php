@@ -18,19 +18,20 @@ $input = json_decode(file_get_contents("php://input"));
 . "; ";*/
 
 
-$sql = "SELECT sr.id, sr.name, sr.user_id as c_user_id, sr.mobile, sr.address, sr.remarks, sr.status, sr.creation, service,service_type,salary,start_time,end_time, "
-    ." r.rating as cem_rating,  "
-    ." uw.id as worker_id, uw.name as worker_name, uw.mobile as worker_mobile, wr.rating as worker_rating  "
-    . "FROM `bluenet_v3`.`service_request` AS sr "
-    . "LEFT JOIN `bluenet_v3`.worker_customer_match AS wcm ON sr.id = wcm.service_request_id AND wcm.type != 'leave' "
-    . "LEFT JOIN `bluenet_v3`.users AS uw ON wcm.user_worker_id = uw.id  "
-    . "LEFT JOIN `bluenet_v3`.timings AS t  ON sr.id = t.service_request_id "
-
-    . "LEFT JOIN `bluenet_v3`.ratings AS r ON sr.user_cem_id = r.user_id AND sr.user_id = r.customer_user_id  "
-    . "LEFT JOIN `bluenet_v3`.ratings AS wr ON wcm.user_worker_id = wr.user_id AND sr.user_id = wr.customer_user_id "
-    . "LEFT JOIN `bluenet_v3`.users AS u ON sr.user_id = u.id "
-
-    . "WHERE 1 ORDER BY `creation` DESC "  ;
+$sql = "SELECT sr.id, sr.name, sr.user_id as c_user_id, sr.mobile, sr.address, sr.remarks, sr.status, sr.creation, service,service_type,salary,start_time,end_time, 
+    r.rating as cem_rating, 
+    uw.id as worker_id, uw.name as worker_name, uw.mobile as worker_mobile, 
+    wr.rating as worker_rating FROM `bluenet_v3`.`service_request` AS sr 
+    LEFT JOIN `bluenet_v3`.worker_customer_match AS wcm 
+    ON sr.id = wcm.service_request_id AND wcm.type != 'leave' 
+    LEFT JOIN `bluenet_v3`.users AS uw ON wcm.user_worker_id = uw.id  
+    LEFT JOIN `bluenet_v3`.timings AS t  ON sr.id = t.service_request_id 
+    LEFT JOIN `bluenet_v3`.ratings AS r ON sr.user_cem_id = r.user_id AND 
+    sr.user_id = r.customer_user_id  
+    LEFT JOIN `bluenet_v3`.ratings AS wr ON wcm.user_worker_id = wr.user_id AND 
+    sr.user_id = wr.customer_user_id 
+    LEFT JOIN `bluenet_v3`.users AS u ON sr.user_id = u.id 
+    WHERE 1 ORDER BY `creation` DESC "  ;
 
 $result = mysqli_query($db_handle, $sql);
 //echo $sql;
