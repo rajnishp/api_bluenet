@@ -121,6 +121,10 @@ switch ($page) {
         require_once "app_rec/check_mobile.php";
         break;
 
+    case "all-service-requests":
+        require_once "inc_service_request/get_all_service_requests.php";
+        break;
+
     case "login":
         require_once "app_rec/login.php";
         break;
