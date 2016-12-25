@@ -25,6 +25,9 @@ if($input->root->key == "status")
 if($input->root->key == "new_cem_id")
     $set = "`user_cem_id` = '" . $input->root->value . "'";
 
+if($input->root->key == "address")
+    $set = "`address` = '" . $input->root->value . "', remarks = '" . $input->root->remark . "'";
+
 $sql = "UPDATE `bluenet_v3`.`service_request`
                 SET ".$set."
                 WHERE `service_request`.`id` = " . $input->root->sr_id . ";";
