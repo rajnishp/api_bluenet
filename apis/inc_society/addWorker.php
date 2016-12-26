@@ -74,16 +74,18 @@ function createCustomerWorker($db_handle,$name,$mobile,$address,$photo,$refId,$l
     $result = mysqli_query($db_handle, "Update `bluenet_v3`.users set md5_id = MD5(".$uwId .") where id = ".$uwId );
 
     //3. adding worker docs
-    $sql = "INSERT INTO `bluenet_v3`.`user_documents` (`id`,  `user_id`, `pv`, `adhar_card`, `voter_id`, `driving_license`, `pan_card`)
-				VALUES (NULL,
-					'" . $uwId . "',
-					'" . $pv . "',
-					 '" . $adhar_card . "',
-					  '" . $voter_card . "',
-					   '" . $driving_license . "',
-						'" . $pan_card . "');";
+    if($pv != 0 && $pv !== "" && $pv !==null){
+	    $sql = "INSERT INTO `bluenet_v3`.`user_documents` (`id`,  `user_id`, `pv`, `adhar_card`, `voter_id`, `driving_license`, `pan_card`)
+					VALUES (NULL,
+						'" . $uwId . "',
+						'" . $pv . "',
+						 '" . $adhar_card . "',
+						  '" . $voter_card . "',
+						   '" . $driving_license . "',
+							'" . $pan_card . "');";
 
-    $result = mysqli_query($db_handle, $sql);
+	    $result = mysqli_query($db_handle, $sql);
+	}
 
 
     //4. adding worker
@@ -178,9 +180,10 @@ else{
 		$input->root->worker_ac, $input->root->worker_vc, $input->root->worker_dl, 
 		$input->root->worker_pc,
         $input->root->worker_emergency_no, $input->root->worker_native_add, $route[2]);
-
-    createDocUid($db_handle,$wId,$input->root->worker_pv_uid,$input->root->worker_ac_uid,
+	if(isset($input->root->worker_pv_uid)){
+    	createDocUid($db_handle,$wId,$input->root->worker_pv_uid,$input->root->worker_ac_uid,
         $input->root->worker_vc_uid, $input->root->worker_dl_uid, $input->root->worker_pc_uid);
+    }
 //echo $refId." ".$wId.",";
 
     $input->root->worker_id = $wId;
