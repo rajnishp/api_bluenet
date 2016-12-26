@@ -175,4 +175,19 @@ if($refId != 0) {
     $input->root->resident_id = $refId;
     $input->root->worker_id = $wId;
 }
+else{
+	$wId = createCustomerWorker($db_handle, $input->root->worker_name, $input->root->worker_mobile, 
+		$input->root->worker_address, $input->root->worker_photo, $input->root->customer_id, 
+		$input->root->worker_localId, $input->root->worker_service, $input->root->worker_pv, 
+		$input->root->worker_ac, $input->root->worker_vc, $input->root->worker_dl, 
+		$input->root->worker_pc,
+        $input->root->worker_emergency_no, $input->root->worker_native_add, $route[2]);
+
+    createDocUid($db_handle,$wId,$input->root->worker_pv_uid,$input->root->worker_ac_uid,
+        $input->root->worker_vc_uid, $input->root->worker_dl_uid, $input->root->worker_pc_uid);
+//echo $refId." ".$wId.",";
+
+    $input->root->resident_id = $refId;
+    $input->root->worker_id = $wId;
+}
 print json_encode($input);
