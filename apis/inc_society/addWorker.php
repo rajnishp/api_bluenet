@@ -153,13 +153,9 @@ function createDocUid($dbHandle,$uwId,$pvUid,$adharCardUid, $voterCardUid, $driv
     return mysqli_query($dbHandle, $sql);
 
 }
-
-
-
-
-
+if(isset($input->root->resident_name)){
 $refId = createCustomer($db_handle,$input->root->resident_name,$input->root->resident_mobile,$input->root->resident_address, $route[2]);
-
+}
 
 if($refId != 0) {
     $wId = createCustomerWorker($db_handle, $input->root->worker_name, $input->root->worker_mobile, $input->root->worker_address,
@@ -187,7 +183,6 @@ else{
         $input->root->worker_vc_uid, $input->root->worker_dl_uid, $input->root->worker_pc_uid);
 //echo $refId." ".$wId.",";
 
-    $input->root->resident_id = $refId;
     $input->root->worker_id = $wId;
 }
 print json_encode($input);
