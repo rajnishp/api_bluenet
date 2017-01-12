@@ -20,5 +20,5 @@ $request = "SELECT count(id) as count from bluenet_v3.service_request WHERE 1 ;"
 $requestData = mysqli_query ($db_handle, $request);
 $data['request'] = mysqli_fetch_array($requestData)['count'];
 
-echo '{"root":'.json_encode($rows).'}';
+echo '{"root":'.json_encode($data).'}';
 ?>
