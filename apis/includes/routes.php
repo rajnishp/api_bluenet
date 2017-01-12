@@ -188,6 +188,10 @@ switch ($page) {
         require_once "app_rec/getScore.php";
         break;
 
+    case "count":
+        require_once "app_rec/count.php";
+
+        break;
     default:
         internalServerError("Error description: " . json_encode($_SERVER));
         die();

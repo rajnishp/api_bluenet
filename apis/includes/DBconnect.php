@@ -10,8 +10,10 @@ $config['host'] = "localhost";
 $config['user'] = "root";
 $config['password'] = "redhat@11111p";
 $config['database'] = "bluenethack_v0";
+$configbt['database'] = "blueteam_service_providers";
 
 $db_handle = mysqli_connect($config['host'], $config['user'], $config['password'], $config['database']);
+$db_handle_bt_sp = mysqli_connect($config['host'], $config['user'], $config['password'], $configbt['database']);
 
 if (mysqli_connect_errno()) {
     /* send 500 html header*/
