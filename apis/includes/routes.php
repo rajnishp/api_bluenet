@@ -164,6 +164,10 @@ switch ($page) {
         require_once "app_rec/get_sr_by_cem_id.php";
         break;
 
+    case "cem_mysr_month":
+        require_once "app_rec/get_sr_by_month.php";
+        break;
+
     case "bills":
         require_once "app_rec/bills.php";
         break;
