@@ -16,7 +16,9 @@ $input = json_decode(file_get_contents("php://input"));
 ." WHERE sr.mobile = '" . $route[2]  ."'"
 . "AND sr.id = t.service_request_id "
 . "; ";*/
-$monthyear = explode(",", date('m,Y', strtotime($_GET['month'])));
+$data = $_GET['month'];
+$month = date('m', strtotime($data));
+$year = date('Y', strtotime($data));
 
 $sql = "SELECT sr.id, sr.name, sr.user_id as c_user_id, sr.mobile, sr.address, sr.remarks, sr.status, sr.creation, service,service_type,salary,start_time,end_time, r.rating as cem_rating,  "
     ." uw.id as worker_id, uw.name as worker_name, uw.mobile as worker_mobile, wr.rating as worker_rating  "
@@ -27,7 +29,7 @@ $sql = "SELECT sr.id, sr.name, sr.user_id as c_user_id, sr.mobile, sr.address, s
     . "LEFT JOIN `bluenet_v3`.ratings AS r ON sr.user_cem_id = r.user_id AND sr.user_id = r.customer_user_id  "
     . "LEFT JOIN `bluenet_v3`.ratings AS wr ON wcm.user_worker_id = wr.user_id AND sr.user_id = wr.customer_user_id "
     . "LEFT JOIN `bluenet_v3`.users AS u ON sr.user_id = u.id "
-    . "WHERE sr.user_cem_id = '".$route[2]."' AND sr.status =  '".$_GET['status']."' AND month( sr.creation ) = '".$monthyear[0]."' AND year( sr.creation ) = '".$monthyear[1]."' ORDER BY `creation` DESC "  ;
+    . "WHERE sr.user_cem_id = '".$route[2]."' AND sr.status =  '".$_GET['status']."' AND month( sr.creation ) = '".$month."' AND year( sr.creation ) = '".$year."' ORDER BY `creation` DESC "  ;
 
 $result = mysqli_query($db_handle, $sql);
 //echo $sql;
